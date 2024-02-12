@@ -1,0 +1,55 @@
+# Vogue Estates-FrontEnd 
+
+## Description
+"Vogue Estates" offers an unparalleled digital journey into the heart of Miami's luxury real estate market, designed exclusively for the discerning individual seeking the pinnacle of sophistication and exclusivity. At the core of this innovative app lies a meticulously curated collection of Miami's most prestigious properties, from opulent waterfront estates to majestic high-rise condominiums, each showcasing breathtaking views, cutting-edge architecture, and world-class amenities.
+
+Vogue Estates is more than just a real estate app; it's a gateway to a lifestyle of unparalleled luxury and prestige. Users are invited to explore an array of exceptional residences through immersive virtual tours, high-definition photography, and detailed, eloquent descriptions that capture the essence of each property's unique allure. Our app's intuitive design and personalized search functionalities ensure a seamless and customized experience, allowing users to effortlessly discover properties that align with their most exacting standards.
+
+Beyond the properties themselves, Vogue Estates offers an insider's look into Miami's luxurious lifestyle, with exclusive insights into the city's elite social scene, high-end dining, art, culture, and entertainment. For those ready to make their dream home a reality, our app provides direct access to a select network of Miami's top real estate professionals, offering bespoke services to assist with every aspect of the acquisition process.
+
+Vogue Estates stands as a testament to luxury, elegance, and innovation, offering an unrivaled digital platform that not only showcases the best of Miami's real estate but also embodies the vibrant spirit and allure of the city itself. Join us, and step into a world where your most extravagant dreams can find their home.
+
+## Team Members
+The Vogue Estates project is brought to life by a team of dedicated professionals, each with their own specialized role:
+
+- **Aldiana**:  Backend Programmer. Backend Github Repo Owner
+- **Wyatt**: Frontend Programmer & Documentor.
+- **Antwon**: GitHub Owner & Frontend Programmer. 
+- **Lesley**: Backend Programmer, Timeline and Schedule Keeper.
+
+## Team Expectations and Roles
+https://docs.google.com/document/d/1QF8Ri7MAAw4EjZo2KgiP7K6QLxGouYGsaGNde3bO8Mo/edit
+
+##  Trello 
+![Alt text](<assets/Trello.png>)
+https://trello.com/b/0mWjNa2M/vogue-properties
+
+
+## Wire Frames
+ ![Alt text](<assets/Wireframe.png>)
+ https://miro.com/app/board/uXjVN_qSCF8=/
+
+## ERD
+![Alt text](<assets/ERD.png>)
+https://miro.com/app/board/uXjVNvMbcs0=/?share_link_id=319799477277
+
+## Component Hierarchy Diagram
+![Alt text](<assets/Component Hierarchy Diagram.png>)
+https://miro.com/app/board/uXjVNunw24Q=/
+
+## MVP - User Stories
+- As a user I want to log in and see an easy to navigate website.
+- As a user I want to be able to sign up  under new credentials for the website.
+- As a user I want to be able to go through various pictures of listings.
+- As a agent I want to be able to update my information on the website.
+- As an agent I want to be ale to update, delete, and post listings.
+- As a user I want the website to be visually appealing and gives the impression of high class and professionalism.
+## Ice Box
+
+In future iterations of Vogue Estates, we plan to introduce additional features to enhance user experience. These are currently in our Ice Box:
+
+1. **Facetime Feature**: 
+   - As a user, I want to initiate and receive FaceTime calls directly from my contact list, enabling me to effortlessly connect with friends and family through video chat, so that I can have more engaging and personal conversations, regardless of our physical locations.
+
+2. **Form submission to Agent**: 
+   - As a user, I want to submit forms to an agent through a simple and intuitive interface, allowing me to easily provide necessary information and requests, so that I can receive personalized assistance and responses efficiently, enhancing my overall experience with the service.
