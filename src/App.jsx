@@ -7,15 +7,18 @@ import Listing from './pages/Listing/Listing'
 import Landing from './pages/Landing/Landing'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ListingDetails from './pages/ListingDetails/ListingDetails'; 
+
+
 
 
 function App() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const [user, setUser] = useState(authService.getUser());
 
   function handleSignout() {
     authService.logout();
-    setUser(null);
+    // setUser(null);
   }
 
   return (
@@ -32,6 +35,7 @@ function App() {
             <Listing />
           // </ProtectedRoute>
         } />
+        <Route path="/listingdetails" element={<ListingDetails />} /> 
       </Routes>
     </>
   );
