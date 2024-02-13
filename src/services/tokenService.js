@@ -1,4 +1,4 @@
-import jwtDecode from 'jwt-decode'; // Ensure jwt-decode is installed (`npm install jwt-decode`)
+import  jwtDecode from 'jwt-decode'; // Ensure jwt-decode is installed (`npm install jwt-decode`)
 
 const setToken = (token) => {
   localStorage.setItem('token', token);

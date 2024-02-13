@@ -5,6 +5,8 @@ import Location from './pages/Location/Location'
 import Team from './pages/Team/Team'
 import Listing from './pages/Listing/Listing'
 import Landing from './pages/Landing/Landing'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 function App() {
