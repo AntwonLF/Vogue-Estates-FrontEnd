@@ -12,10 +12,10 @@ const Landing = ({ handleSignupOrLogin }) => {
   return (
     <div className="landing-container">
       <div className="brand-container">
-        <h1 className="brand-title">Style$tash</h1>
-        <p className="brand-subtitle">Your wardrobe on the Go</p>
+        <h1 className="brand-title">Vogue Estates</h1>
+        <p className="brand-subtitle">High </p>
         <p className="brand-description">
-          Welcome to StyleStash, the innovative app created by Array of Attire that revolutionizes your shopping and wardrobe management experience! Have you ever found yourself in a store, wondering if you already own something similar to what's in your hand? StyleStash is your modern solution to this age-old dilemma.
+          Vogue Estates will find YOU a home
         </p>
       </div>
       {currentForm === 'login' ? (
@@ -39,7 +39,6 @@ const Landing = ({ handleSignupOrLogin }) => {
 };
 
 export default Landing
-
 
 //needs to include signin and login 
 //button functionality in singup form and login form
