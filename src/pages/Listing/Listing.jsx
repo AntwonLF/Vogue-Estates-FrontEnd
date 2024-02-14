@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router';
 
-import './listing.css'; 
+import './Listing.css'; 
 
 const Listing = () => {
     const navigate = useNavigate();
