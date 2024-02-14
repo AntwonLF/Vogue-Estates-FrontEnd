@@ -2,8 +2,10 @@ import axios from 'axios';
 import * as tokenService from './tokenService';
 
 // Use the environment variable for the base URL
+
 const USER_BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}users`;
 const AGENT_BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}agents`;
+
 
 // Function to decode or retrieve user/agent info from token
 function getUser() {
