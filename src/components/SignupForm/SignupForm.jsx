@@ -1,27 +1,27 @@
 // import { useState } from 'react';
-// import * as authService from '../../services/authServices'
-
-
+// import * as authService from '../../services/authServices';
 
 // const SignupForm = props => {
 //   const [formData, setFormData] = useState({
-//     username: '',
+//     name: '',
 //     email: '',
+//     phone: '',
 //     password: '',
+//     isAgent: false, 
+//     licenseNumber: '',
+//     user: '',
 //   });
 
 //   const handleChange = e => {
+//     const { name, value, type, checked } = e.target;
 //     if (props.setMessage) {
 //       props.setMessage('');
 //     }
-//     const { name, value } = e.target;
 //     setFormData({
 //       ...formData,
-//       [name]: name === 'email' ? value.toLowerCase() : value
+//       [name]: type === 'checkbox' ? checked : (name === 'email' ? value.toLowerCase() : value)
 //     });
 //   };
-
-
 
 //   const handleSubmit = async e => {
 //     e.preventDefault();
@@ -29,36 +29,39 @@
 //       ...formData,
 //       email: formData.email.toLowerCase(),
 //     };
-
+    
 //     try {
-//       await authService.signup(submissionData);
+//       if (formData.isAgent) {
+//         await authService.signupAgent(submissionData);
+//       } else {
+//         await authService.signup(submissionData);
+//       }
 //       props.handleSignupOrLogin();
 //     } catch (err) {
 //       props.setMessage(err.message);
 //     }
-//   }
+//   };
 
-
-//   const { username, email, password } = formData
+//   const { user, email, password, isAgent, licenseNumber, phone } = formData;
 
 //   const isFormInvalid = () => {
-//     return !(username && email && password)
-//   }
+//     if (isAgent) {
+//       return !(user && email && password && licenseNumber);
+//     } else {
+//       return !(user && email && password);
+//     }
+//   };
 
 //   return (
-//     <form
-//       autoComplete="off"
-//       onSubmit={handleSubmit}
-//       className='SignupForm'
-//     >
+//     <form autoComplete="off" onSubmit={handleSubmit} className='SignupForm'>
 //       <div className='inputContainer'>
 //         <input
 //           type="text"
 //           name="username"
 //           autoComplete='off'
-//           value={formData.username || ''}
+//           value={formData.user || ''}
 //           onChange={handleChange}
-//           placeholder="username"
+//           placeholder="Username"
 //           id='username'
 //         />
 //       </div>
@@ -69,7 +72,7 @@
 //           autoComplete='off'
 //           value={formData.email || ''}
 //           onChange={handleChange}
-//           placeholder="email"
+//           placeholder="Email"
 //           id='email'
 //         />
 //       </div>
@@ -80,12 +83,35 @@
 //           autoComplete='off'
 //           value={formData.password}
 //           onChange={handleChange}
-//           placeholder="password"
+//           placeholder="Password"
 //           id='password'
 //         />
 //       </div>
+//       {/* Toggle for agent signup */}
+//       <div className='inputContainer'>
+//         <label>
+//           <input
+//             type="checkbox"
+//             name="isAgent"
+//             checked={formData.isAgent}
+//             onChange={handleChange}
+//           /> Sign up as an agent
+//         </label>
+//       </div>
+      
+//       {formData.isAgent && (
+//         <div className='inputContainer'>
+//           <input
+//             type="text"
+//             name="licenseNumber"
+//             value={formData.licenseNumber}
+//             onChange={handleChange}
+//             placeholder="License Number"
+//           />
+//         </div>
+//       )}
 //       <div className='signupbutton'>
-//         <button>
+//         <button disabled={isFormInvalid()}>
 //           Sign Up
 //         </button>
 //       </div>
@@ -94,16 +120,19 @@
 // };
 
 // export default SignupForm;
+
 import { useState } from 'react';
 import * as authService from '../../services/authServices';
 
 const SignupForm = props => {
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     email: '',
+    phone: '',
     password: '',
-    isAgent: false, 
+    isAgent: false,
     licenseNumber: '',
+    user: '',
   });
 
   const handleChange = e => {
@@ -126,9 +155,22 @@ const SignupForm = props => {
     
     try {
       if (formData.isAgent) {
-        await authService.signupAgent(submissionData);
+        const agentData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          license: formData.licenseNumber, // Adjusting based on your description
+          user: formData.user,
+        };
+        await authService.signupAgent(agentData);
       } else {
-        await authService.signup(submissionData);
+        const userData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          user: formData.user,
+        };
+        await authService.signup(userData);
       }
       props.handleSignupOrLogin();
     } catch (err) {
@@ -136,13 +178,13 @@ const SignupForm = props => {
     }
   };
 
-  const { username, email, password, isAgent, licenseNumber } = formData;
+  const { name, email, phone, password, isAgent, licenseNumber, user } = formData;
 
   const isFormInvalid = () => {
     if (isAgent) {
-      return !(username && email && password && licenseNumber);
+      return !(name && email && phone && password && licenseNumber && user);
     } else {
-      return !(username && email && password);
+      return !(name && email && phone && password);
     }
   };
 
@@ -151,12 +193,12 @@ const SignupForm = props => {
       <div className='inputContainer'>
         <input
           type="text"
-          name="username"
+          name="name"
           autoComplete='off'
-          value={formData.username || ''}
+          value={formData.name || ''}
           onChange={handleChange}
-          placeholder="Username"
-          id='username'
+          placeholder="Name"
+          id='name'
         />
       </div>
       <div className='inputContainer'>
@@ -172,6 +214,17 @@ const SignupForm = props => {
       </div>
       <div className='inputContainer'>
         <input
+          type="text"
+          name="phone"
+          autoComplete='off'
+          value={formData.phone || ''}
+          onChange={handleChange}
+          placeholder="Phone"
+          id='phone'
+        />
+      </div>
+      <div className='inputContainer'>
+        <input
           type="password"
           name="password"
           autoComplete='off'
@@ -180,8 +233,18 @@ const SignupForm = props => {
           placeholder="Password"
           id='password'
         />
+        </div>
+      <div className='inputContainer'>
+        <input
+          type="user"
+          name="user"
+          autoComplete='off'
+          value={formData.user}
+          onChange={handleChange}
+          placeholder="Username"
+          id='user'
+        />
       </div>
-      {/* Toggle for agent signup */}
       <div className='inputContainer'>
         <label>
           <input
@@ -192,7 +255,6 @@ const SignupForm = props => {
           /> Sign up as an agent
         </label>
       </div>
-      
       {formData.isAgent && (
         <div className='inputContainer'>
           <input
@@ -201,7 +263,8 @@ const SignupForm = props => {
             value={formData.licenseNumber}
             onChange={handleChange}
             placeholder="License Number"
-          />
+            id='licenseNumber'
+          /> {/* This is where the missing closing tags were added */}
         </div>
       )}
       <div className='signupbutton'>

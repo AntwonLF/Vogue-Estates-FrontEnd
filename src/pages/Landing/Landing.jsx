@@ -13,9 +13,9 @@ const Landing = ({ handleSignupOrLogin }) => {
     <div className="landing-container">
       <div className="brand-container">
         <h1 className="brand-title">Vogue Estates</h1>
-        <p className="brand-subtitle">High </p>
+        <p className="brand-subtitle">High Quality Homes</p>
         <p className="brand-description">
-          Vogue Estates will find YOU a home
+          Where class meets ease
         </p>
       </div>
       {currentForm === 'login' ? (
@@ -39,6 +39,7 @@ const Landing = ({ handleSignupOrLogin }) => {
 };
 
 export default Landing
+
 
 //needs to include signin and login 
 //button functionality in singup form and login form
