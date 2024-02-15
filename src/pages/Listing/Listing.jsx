@@ -23,9 +23,10 @@ const Listing = () => {
         'https://via.placeholder.com/150',
     ];
 
-    const handleImageClick = (imgUrl)   => {
-        navigate('/listingdetails', { state: { imgUrl } });
+    const handleImageClick = (imgUrl, id) => {
+        navigate(`/listingdetails/${id}`, { state: { imgUrl } });
     };
+    
 
     return (
         <div className="carousel-container">
