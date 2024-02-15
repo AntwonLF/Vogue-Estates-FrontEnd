@@ -6,7 +6,7 @@ const Team = () => {
     <div className="row">
       <div className="column">
         <div className="card">
-          <img src="https://i.imgur.com/8n4aky6.jpg" alt="Aldiana" style={{ width: '50%' }} />
+          <img src="https://i.imgur.com/8n4aky6.jpg" alt="Aldiana" style={{ width: '50%', display: 'block', margin: 'auto' }} />
           <div className="container">
             <h2>Aldiana Hot</h2>
             <p className="title">Founder/agent</p>
@@ -19,11 +19,11 @@ const Team = () => {
 
       <div className="column">
         <div className="card">
-          <img src="https://i.imgur.com/0p6pZFY.jpg" alt="Lesley" style={{ width: '50%' }} />
+          <img src="https://i.imgur.com/0p6pZFY.jpg" alt="Lesley" style={{ width: '52%', display: 'block', margin: 'auto' }} />
           <div className="container">
             <h2>Lesley Rotanto</h2>
             <p className="title">CEO/agent</p>
-            <p>Will find you the best dang house in Miami you've seen</p>
+            <p>Will find you the flashiest house in Miami no questions asked</p>
             <p>LesleyR@vogueestates.com</p>
             <p><button className="button">Contact</button></p>
           </div>
@@ -32,7 +32,7 @@ const Team = () => {
 
       <div className="column">
         <div className="card">
-          <img src="https://i.imgur.com/VNVKkmU.jpg" alt="Antwon" style={{ width: '50%' }} />
+          <img src="https://i.imgur.com/VNVKkmU.jpg" alt="Antwon" style={{ width: '50%', display: 'block', margin: 'auto' }} />
           <div className="container">
             <h2>Antwon Frager</h2>
             <p className="title">Assistant to the regional Manger</p>
@@ -45,7 +45,7 @@ const Team = () => {
 
       <div className="column">
         <div className="card">
-          <img src="https://i.imgur.com/DIKevNg.jpg" alt="Wyatt" style={{ width: '50%' }} />
+          <img src="https://i.imgur.com/DIKevNg.jpg" alt="Wyatt" style={{ width: '50%', display: 'block', margin: 'auto' }} />
           <div className="container">
             <h2>Wyatt Smith</h2>
             <p className="title">Intern</p>

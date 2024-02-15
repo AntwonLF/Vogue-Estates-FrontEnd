@@ -1,12 +1,65 @@
 .Nav {
+    position: relative; /* Fix the navbar at the top */
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    align-content: space-between;
-    flex-wrap: nowrap; /* Keep items in a single line */
-    justify-content: flex-end; /* Move to right side */
-  }
-  
-  .dropdown-menu {
-    position: absolute; /* Position absolutely relative to its parent */
-    top: 0; /* Align to top edge */
-    right: 0; /* Align to right edge */
-  }
+    align-items: center;
+    justify-content: flex-end; /* Align the menu to the right */
+    background-color: #333; /* Dark background */
+    color: white;
+    padding: 10px;
+    z-index: 1000; /* Ensure the navbar is above other content */
+}
+
+.Nav .dropdown {
+    background-color: #444; /* Slightly lighter than the navbar for contrast */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.Nav .dropdown:hover {
+    background-color: #555; /* Highlight on hover */
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position just below the navbar */
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu.show {
+    display: block; /* Show the dropdown when toggled */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    border-bottom: 1px solid #444; /* Separator between items */
+}
+
+.dropdown-menu ul li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.dropdown-menu ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #555; /* Highlight on hover */
+}
