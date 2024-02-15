@@ -129,9 +129,8 @@ const SignupForm = props => {
     name: '',
     email: '',
     phone: '',
-    password: '',
-    isAgent: false,
     licenseNumber: '',
+    password: '',
     user: '',
   });
 
@@ -178,11 +177,11 @@ const SignupForm = props => {
     }
   };
 
-  const { name, email, phone, password, isAgent, licenseNumber, user } = formData;
+  const { name, email, phone, password, isAgent, user } = formData;
 
   const isFormInvalid = () => {
     if (isAgent) {
-      return !(name && email && phone && password && licenseNumber && user);
+      return !(name && email && phone && password && user);
     } else {
       return !(name && email && phone && password);
     }
@@ -245,17 +244,8 @@ const SignupForm = props => {
           id='user'
         />
       </div>
-      <div className='inputContainer'>
-        <label>
-          <input
-            type="checkbox"
-            name="isAgent"
-            checked={formData.isAgent}
-            onChange={handleChange}
-          /> Sign up as an agent
-        </label>
-      </div>
-      {formData.isAgent && (
+    
+     {true && (
         <div className='inputContainer'>
           <input
             type="text"

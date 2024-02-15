@@ -1,6 +1,12 @@
 .Nav {
     display: flex;
-    justify-content: space-between;
     align-content: space-between;
-    flex-wrap: wrap;
-}
+    flex-wrap: nowrap; /* Keep items in a single line */
+    justify-content: flex-end; /* Move to right side */
+  }
+  
+  .dropdown-menu {
+    position: absolute; /* Position absolutely relative to its parent */
+    top: 0; /* Align to top edge */
+    right: 0; /* Align to right edge */
+  }

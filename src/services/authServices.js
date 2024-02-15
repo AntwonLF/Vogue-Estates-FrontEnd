@@ -31,7 +31,7 @@ async function signupUser(user) {
 // Signup for agents
 async function signupAgent(agent) {
   try {
-    const response = await axios.post(`https://vogue-estates-90406bfbb091.herokuapp.com/agents/register/`, agent);
+    const response = await axios.post(`${AGENT_BASE_URL}/register`, agent);
     console.log(agent)
     const json = response.data;
     console.log(response.data)
