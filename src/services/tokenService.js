@@ -8,7 +8,6 @@ const setToken = (token) => {
 
 const getToken = () => {
   const token = localStorage.getItem('token');
-  console.log('Retrieved token:', token); 
   return token;
 };
 

@@ -23,6 +23,8 @@ const handleLoginResponse = (response) => {
 async function loginClient(credentials) {
   try {
     const response = await axios.post(`${CLIENT_BASE_URL}login/`, credentials);
+    const token = response.data.access
+    setToken(token);
     return handleLoginResponse(response);
   } catch (err) {
     console.error("Login client error:", err);
@@ -40,8 +42,6 @@ async function loginAgent(credentials) {
     const response = await axios.post(`${AGENT_BASE_URL}login/`, credentials);
     const  token  = response.data.access; 
     setToken(token);
-    console.log(response);
-    console.log(token);
     return handleLoginResponse(response);
   } catch (err) {
     console.error("Login agent error:", err);
@@ -55,6 +55,8 @@ async function loginAgent(credentials) {
 async function signupClient(clientData) {
   try {
     const response = await axios.post(`${CLIENT_BASE_URL}register/`, clientData);
+    const  token  = response.data.access; 
+    setToken(token);
     return handleLoginResponse(response);
   } catch (err) {
     console.error("Signup client error:", err);
@@ -66,6 +68,8 @@ async function signupClient(clientData) {
 async function signupAgent(agentData) {
   try {
     const response = await axios.post(`${AGENT_BASE_URL}register/`, agentData);
+    const  token  = response.data.access; 
+    setToken(token);
     return handleLoginResponse(response);
   } catch (err) {
     console.error("Signup agent error:", err);

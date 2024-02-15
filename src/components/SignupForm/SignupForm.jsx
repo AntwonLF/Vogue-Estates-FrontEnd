@@ -9,7 +9,7 @@ const SignupForm = props => {
     password: '',
     isAgent: false,
     licenseNumber: '',
-    name: 'name name',
+    name: '',
   });
 
   const navigate = useNavigate();
@@ -32,9 +32,10 @@ const SignupForm = props => {
       if (formData.isAgent) {
         const agentData = {
           username: formData.username,
-          email: formData.email, 
+          email: formData.email,
           password: formData.password,
           license: formData.licenseNumber,
+          name: formData.name,
         };
         await authService.signupAgent(agentData);
       } else {
@@ -42,6 +43,7 @@ const SignupForm = props => {
           username: formData.username,
           email: formData.email,
           password: formData.password,
+          name: formData.name,
         };
         await authService.signup(userData);
       }
@@ -52,13 +54,13 @@ const SignupForm = props => {
     }
   };
 
-  const { username, email, password, isAgent, licenseNumber } = formData;
+  const { username, email, password, isAgent, licenseNumber, name } = formData;
 
   const isFormInvalid = () => {
     if (isAgent) {
-      return !(username && email && password && licenseNumber);
+      return !(username && email && password && licenseNumber && name);
     } else {
-      return !(username && email && password);
+      return !(username && email && password && name);
     }
   };
 
@@ -107,6 +109,7 @@ const SignupForm = props => {
           /> Sign up as an agent
         </label>
       </div>
+
       {formData.isAgent && (
         <div className='inputContainer'>
           <input
@@ -119,6 +122,18 @@ const SignupForm = props => {
           />
         </div>
       )}
+        <div className='inputContainer'>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="name"
+            id='name'
+          />
+        </div>
+    
+
       <div className='signupbutton'>
         <button disabled={isFormInvalid()}>
           Sign Up
