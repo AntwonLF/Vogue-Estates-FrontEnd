@@ -10,20 +10,21 @@
   }
   
   .column {
-    flex: 0 1 45%; /* Adjust the flex-basis to control the width of the columns */
+    flex: 0 1 45%; 
     margin-bottom: 16px;
     padding: 0 8px;
   }
   
   @media screen and (max-width: 650px) {
     .column {
-      flex: 0 1 100%; /* Make the columns full width on small screens */
+      flex: 0 1 100%; 
       display: block;
     }
   }
   
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
   }
   
   .container {
@@ -54,5 +55,12 @@
   
   .button:hover {
     background-color: #555;
+  }
+  
+  .img {
+    border: transparent, 1, solid;
+    border-radius: 150px;
+    padding: 5px;
+
   }
   

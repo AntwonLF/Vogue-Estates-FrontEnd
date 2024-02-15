@@ -10,11 +10,12 @@ const NavBar = ({ user, handleSignout }) => {
         setDropdownOpen(!dropdownOpen);
     };
 
+
     return (
         <div className="Nav">
             <button className="dropdown" onClick={toggleDropdown}>Menu</button>
             {dropdownOpen && (
-                <nav className="dropdown-menu show">
+                <nav className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/team">Team</Link></li>

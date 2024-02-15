@@ -1,36 +1,37 @@
 .Nav {
-    position: relative; /* Fix the navbar at the top */
+    position: sticky; /* Fix the navbar at the top */
     top: 0;
     left: 0;
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Align the menu to the right */
-    background-color: #333; /* Dark background */
+    justify-content: flex-start; /* Align the menu to the right */
+    background-color: transparent;
     color: white;
     padding: 10px;
     z-index: 1000; /* Ensure the navbar is above other content */
 }
 
 .Nav .dropdown {
-    background-color: #444; /* Slightly lighter than the navbar for contrast */
+    /* background-color: #444; Slightly lighter than the navbar for contrast */
     color: white;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
+    background-color: transparent;
 }
 
 .Nav .dropdown:hover {
-    background-color: #555; /* Highlight on hover */
+    background-color: #c7bcbc; /* Highlight on hover */
 }
 
 .dropdown-menu {
     display: none; /* Hidden by default */
     position: absolute;
     top: 100%; /* Position just below the navbar */
-    right: 0;
-    background-color: #333;
+    left: 0; /* Position the dropdown menu to the left */
+    background-color: transparent;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

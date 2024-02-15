@@ -61,9 +61,8 @@ const Landing = ({ handleSignupOrLogin }) => {
   return (
     <><div className="landing-container">
           <div className="brand-container">
-              <h1 className="brand-title">Vogue Estates</h1>
-              <p className="brand-subtitle">High Quality Homes</p>
-              <p className="brand-description">Where class meets ease</p>
+              <h1 className="brand-title">Vogue Estateś</h1>
+              <p className="brand-subtitle">Where luxury meets realty</p>
           </div>
           <div className="about-section">
               <h2>About Us</h2>
@@ -93,3 +92,5 @@ const Landing = ({ handleSignupOrLogin }) => {
 };
 
 export default Landing;
+
+
