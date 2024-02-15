@@ -1,0 +1,157 @@
+body {
+    background-image: url('../../assets/6ITdarf.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image static */
+    background-size: cover; /* Ensures the background image covers the entire page */
+  }
+  
+  body::before {
+    content: "";
+    position: fixed; /* Overlay stays in place while scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* White transparent overlay */
+    z-index: -1; /* Ensures the overlay is behind the content */
+  }
+  
+
+  .landing-container {
+    font-family: 'Montserrat';
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-rows: auto auto auto; /* Auto-sized rows */
+    gap: 0px; /* No gap between grid items */
+    align-items: start; /* Align items to the start of the container */
+    justify-content: center;
+    min-height: 100vh; /* Minimum height to cover the viewport */
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    background-color: transparent;
+  }
+  
+  .brand-container {
+    text-align: center;
+    margin-bottom: 0; /* Changed from 30px to 0 */
+  }
+  
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 0; /* Ensure there's no bottom margin pushing the form-section down */
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    background-color: #fff; /* Set a background color for the form section */
+    width: 100%; /* Match the width of the about-section */
+    margin-top: 0; /* Ensure there's no top margin creating a gap */
+  }
+  
+  .brand-title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 3rem; 
+    font-weight: 300;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 15px;
+    }
+  
+  .brand-subtitle {
+    font-size: 1.5rem;
+    color: #0e0c0c;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .brand-description {
+    font-size: 1rem;
+    color: #0e0c0c;
+    font-weight: bold;
+  }
+  
+  .toggle-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }
+
+
+  .about-section * {
+    margin-bottom: 0;
+  }
+
+  .form-section * {
+    margin-top: 0;
+  }
+  /* .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: white; 
+    width: 100%;
+  }
+
+  
+  .about-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  } */
+
+  /* .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0; /* Adjust padding as needed */
+    /* background-color: #fff; Optional: Set a background color for the form section
+  } */ 
+
+  .brand-subtitle {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+    box-sizing: border-box;
+  }
+
+  /* .container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "Nave Nave Nave"
+      "Nave Nave Nave"
+      "about-us about-us about-us"
+      "login login login"; 
+  }
+  .Nave { grid-area: Nave; }
+  .about-us { grid-area: about-us; }
+  .login { grid-area: login; } */
