@@ -16,7 +16,7 @@ const Listing = () => {
         centerMode: true,
     };
     const images = [
-        'https://via.placeholder.com/150',
+        'https://cdn.newswire.com/files/x/a6/27/041e83ae2346dd39fa550a676446.jpg',
         'https://via.placeholder.com/150',
         'https://via.placeholder.com/150',
         'https://via.placeholder.com/150',

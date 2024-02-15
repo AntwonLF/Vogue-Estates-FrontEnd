@@ -41,5 +41,3 @@ const Landing = ({ handleSignupOrLogin }) => {
 export default Landing
 
 
-//needs to include signin and login 
-//button functionality in singup form and login form
