@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'; 
 import NavBar from './components/Navbar/Navbar';
 import Location from './pages/Location/Location';
 import Team from './pages/Team/Team';
 import Listing from './pages/Listing/Listing';
 import Landing from './pages/Landing/Landing';
 import ListingDetails from './pages/ListingDetails/ListingDetails';
-import * as authService from './services/authServices'; 
+import * as authService from './services/authServices';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ProtectedRoute = ({ user, children }) => { 
-  return user ? children : <Navigate to="/" replace />; 
+const ProtectedRoute = ({ user, children }) => {
+  return user ? children : <Navigate to="/" replace />;
 };
 
 function App() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    const user = authService.getCurrentUser(); 
+    const user = authService.getCurrentUser();
     setUser(user);
   }, []);
 
   const handleSignupOrLogin = () => {
-    const user = authService.getCurrentUser(); 
-    setUser(user); 
+    const user = authService.getCurrentUser();
+    setUser(user);
   };
 
   const handleSignout = () => {
-    authService.logoutUser(); 
-    setUser(null); 
+    authService.logoutUser();
+    setUser(null);
+    navigate('/'); 
   };
 
   return (

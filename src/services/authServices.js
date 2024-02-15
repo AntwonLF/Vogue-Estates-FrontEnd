@@ -78,7 +78,7 @@ async function signupAgent(agentData) {
 }
 
 // Logout function
-function logout() {
+function signout() {
   tokenService.removeToken();
 }
 
@@ -92,6 +92,6 @@ export {
   loginAgent,
   signupClient,
   signupAgent,
-  logout,
+  signout,
   getCurrentUser
 };
