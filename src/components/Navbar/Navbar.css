@@ -7,23 +7,25 @@
     align-items: center;
     justify-content: flex-start; /* Align the menu to the right */
     background-color: transparent;
-    color: white;
+    color: black;
     padding: 10px;
     z-index: 1000; /* Ensure the navbar is above other content */
 }
 
 .Nav .dropdown {
     /* background-color: #444; Slightly lighter than the navbar for contrast */
-    color: white;
+    color: black;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
     background-color: transparent;
+    font-size: xx-large
+    
 }
 
 .Nav .dropdown:hover {
-    background-color: #c7bcbc; /* Highlight on hover */
+    text-decoration: underline;
 }
 
 .dropdown-menu {
@@ -34,6 +36,8 @@
     background-color: transparent;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: XX-large;
+    color:Black;
 }
 
 .dropdown-menu.show {
@@ -57,10 +61,10 @@
 .dropdown-menu ul li a {
     display: block;
     padding: 10px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .dropdown-menu ul li a:hover {
-    background-color: #555; /* Highlight on hover */
+    text-decoration: underline;
 }

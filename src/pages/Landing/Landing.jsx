@@ -66,7 +66,7 @@ const Landing = ({ handleSignupOrLogin }) => {
           </div>
           <div className="about-section">
               <h2>About Us</h2>
-              <p>Welcome to Vogue Estates, where we offer high-quality homes for those who appreciate class and comfort. Our mission is to provide our clients with the best possible living experience.</p>
+              <p>Welcome to Vogue Estates, the epitome of high-quality living where sophistication meets comfort in perfect harmony. Our exclusive properties are designed for those who seek more than just a home but a place where every detail reflects class and luxury. At Vogue Estates, we don't just build houses; we craft environments that enhance your lifestyle, creating spaces where memories are made and cherished. Our dedicated team works tirelessly to ensure that from the moment you step through our doors, you're not just a client but a valued member of the Vogue Estates family. Our mission, our passion, is to deliver an unparalleled living experience that caters to your every need, ensuring that your home is a sanctuary of peace and elegance.</p>
           </div>
           {/* Forms moved outside of the main background container to a new section */}
       </div><div className="form-section"> {/* New wrapper for forms */}
