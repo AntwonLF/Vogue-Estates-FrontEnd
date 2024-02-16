@@ -81,12 +81,11 @@ const Landing = ({ handleSignupOrLogin }) => {
                       setMessage={setMessage}
                       handleSignupOrLogin={handleSignupOrLogin} />
               )}
-              <button
+              <a
                   onClick={() => setCurrentForm(currentForm === 'login' ? 'signup' : 'login')}
-                  className="toggle-button"
               >
-                  {currentForm === 'login' ? 'Sign Up' : 'Log In'}
-              </button>
+                  {currentForm === 'login' ? 'Not a user? Sign up here' : 'Already a user? Click to log In'}
+              </a>
           </div></>
   );
 };
