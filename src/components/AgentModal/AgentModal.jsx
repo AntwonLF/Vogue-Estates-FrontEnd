@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import * as tokenService from '../../services/tokenService'; 
-import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
+// import * as tokenService from '../../services/tokenService'; 
+import { getInfoFromToken } from '../../services/tokenService';
 import { addListing, updateListing, deleteListing } from '../../services/listingService'
 
 const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {

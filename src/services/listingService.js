@@ -31,7 +31,7 @@ const addListing = async (listingData, userId) => {
 // Function to update a listing, requiring authentication
 const updateListing = async (listingId, listingData) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${listingId}`, listingData, { // Removed 'update/' to align with REST conventions
+    const response = await axios.put(`${BASE_URL}listing/${listingId}`, listingData, { // Removed 'update/' to align with REST conventions
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     return response.data;
@@ -44,7 +44,7 @@ const updateListing = async (listingId, listingData) => {
 // Optionally, if your application allows for listings to be deleted
 const deleteListing = async (listingId) => {
   try {
-    await axios.delete(`${BASE_URL}/${listingId}`, { // Removed 'delete/' to align with REST conventions
+    await axios.delete(`${BASE_URL}listing/${listingId}`, { // Removed 'delete/' to align with REST conventions
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     // Handle any additional logic or state updates upon successful deletion
