@@ -1,97 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import listingService from '../../services/listingService';
-
-import React, { useState, useEffect } from 'react';
-import listingService from './listingService'; 
+import React, { useState } from 'react';
 
 const AgentModal = ({ listingId, mode, onClose, refreshListings }) => {
+  // Initialize listing state to include an images array and agent as null for integer input
   const [listing, setListing] = useState({
-    name: '', 
+    name: '',
+    address: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    description: '',
+    price: '',
+    bedrooms: '',
+    bathrooms: '',
+    sqft: '',
+    agent: null, // Initialized as null for integer input
+    images: [{ image: '', description: '' }],
   });
+
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (mode === 'edit' && listingId) {
-      const fetchListingDetails = async () => {
-        try {
-          const response = await listingService.getListingDetails(listingId);
-          setListing(response.data);
-        } catch (error) {
-          setError('Error fetching listing details');
-          console.error(error);
-        }
-      };
-
-      fetchListingDetails();
-    }
-  }, [listingId, mode]);
-
+  // Generic input change handler with integer parsing for numeric fields
   const handleInputChange = (e) => {
+    const { name, value, type } = e.target;
+    const updatedValue = type === 'number' ? parseInt(value, 10) : value;
+    setListing((prevListing) => ({
+      ...prevListing,
+      [name]: isNaN(updatedValue) ? null : updatedValue, 
+    }));
+  };
+
+
+  const handleImageChange = (e) => {
     const { name, value } = e.target;
-    setListing({ ...listing, [name]: value });
+    setListing((prevListing) => ({
+      ...prevListing,
+      images: [{ ...prevListing.images[0], [name]: value }],
+    }));
   };
 
-  const createListing = async () => {
-    try {
-      await listingService.addListing(listing);
-      onClose();
-      refreshListings();
-    } catch (error) {
-      setError('Error creating listing');
-      console.error(error);
-    }
-  };
-
-  const updateListing = async () => {
-    try {
-      await listingService.updateListing(listingId, listing);
-      onClose();
-      refreshListings();
-    } catch (error) {
-      setError('Error updating listing');
-      console.error(error);
-    }
-  };
-
-  const deleteListing = async () => {
-    try {
-      await listingService.deleteListing(listingId);
-      onClose();
-      refreshListings();
-    } catch (error) {
-      setError('Error deleting listing');
-      console.error(error);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(listing);
+    refreshListings(); 
+    onClose(); 
   };
 
   return (
     <div className="agent-modal">
-      <form onSubmit={(e) => e.preventDefault()} className="agent-modal-form">
+      <form onSubmit={handleSubmit} className="agent-modal-form">
+        {/* Dynamic form fields excluding 'id' and 'images' */}
+        {Object.keys(listing).map((key) =>
+          key !== 'id' && key !== 'images' ? (
+            <div className="form-group" key={key}>
+              <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+              <input
+                type={key === 'price' || key === 'bedrooms' || key === 'bathrooms' || key === 'sqft' || key === 'agent' ? 'number' : 'text'}
+                id={key}
+                name={key}
+                value={listing[key]}
+                onChange={handleInputChange}
+                placeholder={`Enter ${key}`}
+              />
+            </div>
+          ) : null
+        )}
+        {/* Image URL and Description Input */}
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="image">Image URL</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={listing.name}
-            onChange={handleInputChange}
-            placeholder="Listing Name"
+            id="image"
+            name="image"
+            value={listing.images[0].image}
+            onChange={handleImageChange}
+            placeholder="Enter Image URL"
           />
-          {/* Add other input fields as needed */}
         </div>
-        {/* Conditional rendering based on mode */}
-        {mode === 'create' && (
-          <button type="button" onClick={createListing}>Create Listing</button>
-        )}
-        {mode === 'edit' && (
-          <>
-            <button type="button" onClick={updateListing}>Update Listing</button>
-            <button type="button" onClick={deleteListing}>Delete Listing</button>
-          </>
-        )}
-        <button type="button" onClick={onClose}>Close</button>
+        <div className="form-group">
+          <label htmlFor="description">Image Description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={listing.images[0].description}
+            onChange={handleImageChange}
+            placeholder="Enter Image Description"
+          />
+        </div>
+        <div className="action-buttons">
+          <button type="submit" className="save-btn">Save</button>
+          <button type="button" onClick={onClose} className="close-btn">Close</button>
+        </div>
+        {error && <p className="error-message">{error}</p>}
       </form>
-      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };
