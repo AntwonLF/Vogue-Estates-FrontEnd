@@ -1,0 +1,38 @@
+
+.property-details {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+ 
+  .contact-form {
+    margin-top: 40px;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+  
+  .contact-form input,
+  .contact-form button {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* .contact-form input[type="tel"] {
+  
+  }
+   */
+  
+  
