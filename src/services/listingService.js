@@ -5,11 +5,13 @@ import * as tokenService from './tokenService'; // Ensure this is correctly set 
 // Assuming VITE_BACK_END_SERVER_URL includes the base domain and possibly base path but not the specific endpoint
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`; // Update this path as needed
 
-const getListingDetails = (listingId) => {
-  return axios.get(`${BASE_URL}/${listingId}`, {
+const getAllListings = () => {
+  return axios.get(`${BASE_URL}listinglist/`, {
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   });
 };
+
+
 
 // Function to add a listing, requiring authentication (typically for agents)
 const addListing = async (listingData, userId) => {
@@ -55,7 +57,7 @@ const deleteListing = async (listingId) => {
 
 
 export {
-  getListingDetails,
+  getAllListings,
   addListing,
   updateListing,
   deleteListing,
