@@ -4,9 +4,9 @@ import * as tokenService from './tokenService'; // Ensure this is correctly set 
 // Use the environment variable to set the base URL for listing-related API calls
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}listings`; // Adjust "/api/listings" as needed
 
-const getListingDetails = (listingId) => {
-  return axios.get(`${BASE_URL}/${listingId}`);
-};
+// const getListingDetails = (listingId) => {
+//   return axios.get(`${BASE_URL}/${listingId}`);
+// };
 
 // Function to add a listing, requiring authentication (typically for agents)
 const addListing = async (listingData) => {
@@ -41,6 +41,18 @@ const deleteListing = async (listingId) => {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     // Handle any additional logic or state updates upon successful deletion
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+const getListingDetails = async (clientId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}listinglist/`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    });
+    return response.data;
   } catch (error) {
     console.error(error);
     throw error;

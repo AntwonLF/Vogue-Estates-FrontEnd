@@ -64,4 +64,8 @@
     padding: 5px;
 
   }
+
+  body {
+    background-color: #fff; /* This sets the background color to white */
+  }
   

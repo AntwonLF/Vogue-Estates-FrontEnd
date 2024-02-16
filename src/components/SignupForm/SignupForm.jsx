@@ -134,8 +134,8 @@ const SignupForm = props => {
         </div>
     
 
-      <div className='signupbutton'>
-        <button disabled={isFormInvalid()}>
+      <div className='signup-button'>
+        <button className="glow-on-hover"disabled={isFormInvalid()}>
           Sign Up
         </button>
       </div>
