@@ -1,11 +1,14 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router';
+import getListingDetails from '../../services/listingService';
+
 
 import './Listing.css'; 
 
 const Listing = () => {
     const navigate = useNavigate();
+    console.log(getListingDetails, "testing")
 
     const settings = {
         dots: true,
@@ -17,10 +20,10 @@ const Listing = () => {
     };
     const images = [
         'https://cdn.newswire.com/files/x/a6/27/041e83ae2346dd39fa550a676446.jpg',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
+        'https://i.imgur.com/p1PL8og.png',
+        'https://i.imgur.com/lZhEA2J.png',
+        'https://i.imgur.com/CFwIs9G.png',
+        'https://i.imgur.com/xxNguJn.png',
     ];
 
     const handleImageClick = (imgUrl)   => {
