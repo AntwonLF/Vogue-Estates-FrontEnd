@@ -11,12 +11,12 @@ const AGENT_BASE_URL = `${API_BASE_URL}agents/`;
 // Utility function to handle the login process
 const handleLoginResponse = (response) => {
   const token  = response.data.access;
-  // if (token) {
-  //   tokenService.setToken(token);
-  //   return tokenService.getclientFromToken(); // Utilizing the updated token service
-  // } else {
-  //   throw new Error("No token received");
-  // }
+  if (token) {
+    tokenService.setToken(token);
+    return tokenService.getAgentFromToken(); // Utilizing the updated token service
+  } else {
+    throw new Error("No token received");
+  }
 };
 
 // Login for clients

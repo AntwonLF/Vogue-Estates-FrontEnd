@@ -1,9 +1,10 @@
 body {
-    background-image: url('../../assets/6ITdarf.jpg');
+    /* background-image: url('../../assets/10_miami_914_690.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed; /* Keeps the background image static */
     background-size: cover; /* Ensures the background image covers the entire page */
+    background-color: rgb(213, 208, 208);
   }
   
   body::before {
