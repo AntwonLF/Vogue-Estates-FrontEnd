@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import * as tokenService from '../../services/tokenService'; 
+import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
+import { addListing } from '../../services/listingService'
 
-const AgentModal = ({ listingId, mode, onClose, refreshListings }) => {
+const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
   // Initialize listing state to include an images array and agent as null for integer input
   const [listing, setListing] = useState({
     name: '',
@@ -13,7 +16,7 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings }) => {
     bedrooms: '',
     bathrooms: '',
     sqft: '',
-    agent: null, // Initialized as null for integer input
+    agent: '', 
     images: [{ image: '', description: '' }],
   });
 
@@ -22,10 +25,16 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings }) => {
   // Generic input change handler with integer parsing for numeric fields
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
-    const updatedValue = type === 'number' ? parseInt(value, 10) : value;
+    let updatedValue = value;
+    if(type === 'number'){
+       updatedValue =  parseInt(value, 10);
+       if(isNaN(updatedValue)){
+          updatedValue = '';
+       }
+      }
     setListing((prevListing) => ({
       ...prevListing,
-      [name]: isNaN(updatedValue) ? null : updatedValue, 
+      [name] : updatedValue, 
     }));
   };
 
@@ -38,12 +47,29 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(listing);
-    refreshListings(); 
-    onClose(); 
-  };
+
+    // Retrieve user ID from token
+    const userId = getInfoFromToken('user_id'); 
+    console.log('userID retrieved:', userId)// Adjust 'userid' based on the actual key in your token payload
+
+    if (userId) {
+        const updatedListing = { ...listing, agent: 9 };
+        console.log(updatedListing);
+
+        try {
+            await addListing(updatedListing, userId); 
+            refreshListings();
+            onClose();
+        } catch (error) {
+            setError("Failed to add listing. Please try again."); 
+        }
+    } else {
+        setError("User not identified. Please log in again."); 
+    }
+};
+
 
   return (
     <div className="agent-modal">
