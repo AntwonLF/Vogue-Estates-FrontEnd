@@ -69,7 +69,7 @@ const LoginForm = (props) => {
           <input type="checkbox" checked={isAgent} onChange={toggleUserType} /> Login as Agent
         </label>
       </div>
-      <div>
+      <div className="login-button">
         <button className="glow-on-hover" type="submit">Log In</button>
       </div>
     </form>
