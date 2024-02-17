@@ -14,12 +14,12 @@ const ListingDetails = () => {
       <p className="property-details">
         {listing ? listing.description : "No details available."}
       </p>
-      {/* Display other listing details here, e.g., price, location */}
+  
       {listing && (
         <div>
           <p><strong>Price:</strong> ${listing.price}</p>
           <p><strong>Location:</strong> {listing.location}</p>
-          {/* Add more details as needed */}
+          
         </div>
       )}
 

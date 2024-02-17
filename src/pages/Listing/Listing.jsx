@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router';
 import AgentModal from '../../components/AgentModal/AgentModal';
-import { getAllListings } from '../../services/listingService'; // Adjust the import path as necessary
+import { getAllListings } from '../../services/listingService'; 
 
 import './Listing.css';
 
@@ -26,7 +26,7 @@ const Listing = () => {
             try {
                 const response = await getAllListings();
                 console.log(response);
-                setListings(response.data); // Store the entire listing
+                setListings(response.data);
             } catch (error) {
                 console.error('Failed to fetch listings:', error);
             }
@@ -36,7 +36,7 @@ const Listing = () => {
 
 
     const handleImageClick = (listing) => {
-        navigate(`/listing/${listing.id}`);
+        navigate(`/listing/${listing.id}`, { state: { listing } });
     };
     
 
