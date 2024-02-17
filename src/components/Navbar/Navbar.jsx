@@ -13,7 +13,7 @@ const NavBar = ({ user, handleSignout }) => {
 
     return (
         <div className="Nav">
-            <button className="dropdown" onClick={toggleDropdown}>Menu</button>
+            <button className="dropdown" onClick={toggleDropdown}>{dropdownOpen? 'X' : 'Menu'}</button>
             {dropdownOpen && (
                 <nav className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}>
                     <ul>

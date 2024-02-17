@@ -37,12 +37,14 @@ body {
   }
   
   .brand-container {
+    margin-top: 200px;
+    margin-bottom: 150px; 
     text-align: center;
-    margin-bottom: 0; /* Changed from 30px to 0 */
   }
   
   .about-section {
     padding: 50px;
+    color: #0e0c0c;
     text-align: center;
     background-color: white;
     /* width: 100%; */
