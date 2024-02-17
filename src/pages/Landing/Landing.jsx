@@ -1,17 +1,54 @@
-import { useState } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import './Landing.css';
+import './Landing.css'; 
+import { useTransition, animated } from '@react-spring/web'
 
 const Landing = ({ handleSignupOrLogin }) => {
   const [message, setMessage] = useState('');
   const [currentForm, setCurrentForm] = useState('login');
+  const ref = useRef([])
+  const [items, set] = useState([])
+  const transitions = useTransition(items, {
+    from: {
+      opacity: 0,
+      height: 0,
+      innerHeight: 0,
+      color: 'black',
+    },
+    enter: [
+        { opacity: 1, height: 150, innerHeight: 90 },
+      ],
+      leave: [{ color: 'black' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
+    })
+
+    const reset = useCallback(() => {
+        ref.current.forEach(clearTimeout)
+        ref.current = []
+        set([])
+        ref.current.push(setTimeout(() => set([<h1 className="brand-title">Vogue Estateś</h1>,
+        <p className="brand-subtitle">Where luxury meets realty</p>]), 1000))
+      }, [])
+    
+      useEffect(() => {
+        reset()
+        return () => ref.current.forEach(clearTimeout)
+      }, [])
 
   return (
     <div className="landing-container">
       <div className="brand-container">
-        <h1 className="brand-title">Vogue Estateś</h1>
-        <p className="brand-subtitle">Where luxury meets realty</p>
+      <div className="container">
+      <div className="main">
+        {transitions(({ innerHeight, ...rest }, item) => (
+            <animated.div className="transitionsItem" style={rest} >
+            <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
+          </animated.div>
+        ))}
+      </div>
+    </div>
+        {/* <h1 className="brand-title">Vogue Estateś</h1> */}
+        {/* <p className="brand-subtitle">Where luxury meets realty</p> */}
       </div>
       <div className="about-section">
         <h2>About Us</h2>
