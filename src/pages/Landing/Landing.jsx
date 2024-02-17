@@ -8,14 +8,18 @@ const Landing = ({ handleSignupOrLogin }) => {
   const [currentForm, setCurrentForm] = useState('login');
 
   return (
-    <div className="landing-container" style={{ backgroundImage: `url('../../assets/10_miami_914_690.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
+    <div className="landing-container">
       <div className="brand-container">
         <h1 className="brand-title">Vogue Estateś</h1>
         <p className="brand-subtitle">Where luxury meets realty</p>
       </div>
       <div className="about-section">
         <h2>About Us</h2>
-        <p>Welcome to Vogue Estates, the epitome of high-quality living where sophistication meets comfort in perfect harmony. Our exclusive properties are designed for those who seek more than just a home but a place where every detail reflects class and luxury. At Vogue Estates, we don't just build houses; we craft environments that enhance your lifestyle, creating spaces where memories are made and cherished. Our dedicated team works tirelessly to ensure that from the moment you step through our doors, you're not just a client but a valued member of the Vogue Estates family. Our mission, our passion, is to deliver an unparalleled living experience that caters to your every need, ensuring that your home is a sanctuary of peace and elegance.</p>
+        <p>Welcome to Vogue Estates, the epitome of high-quality living where sophistication meets comfort in perfect harmony. Our exclusive properties are designed for those who seek more than just a home but a place where every detail reflects class and luxury. At Vogue Estates, we don't just build houses; we craft environments that enhance your lifestyle, creating spaces where memories are made and cherished.</p>
+
+        <p>In the heart of Miami's vibrant real estate landscape, Vogue Estates stands out with its unique blend of modern luxury and tropical charm. Our properties in Miami are more than just homes; they are gateways to a lifestyle embraced by sun, sea, and cultural richness. Each estate is carefully designed to harmonize with Miami's dynamic and scenic beauty, offering you an oasis in the midst of the city's lively rhythm.</p>
+
+        <p>Our dedicated team works tirelessly to ensure that from the moment you step through our doors, you're not just a client but a valued member of the Vogue Estates family. Our mission, our passion, is to deliver an unparalleled living experience that caters to your every need, ensuring that your home in Miami is not just a sanctuary of peace and elegance, but also a reflection of the city's vibrant spirit.</p>
       </div>
       {/* Forms moved outside of the main background container to a new section */}
       <div className="form-section"> {/* New wrapper for forms */}
