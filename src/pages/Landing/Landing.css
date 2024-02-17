@@ -1,5 +1,5 @@
 body {
-    background-image: url('../../assets/6ITdarf.jpg');
+    
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed; /* Keeps the background image static */
@@ -19,6 +19,8 @@ body {
   
 
   .landing-container {
+    background-image: url('../../assets/6ITdarf.jpg');
+    margin-top: -67px;
     font-family: 'Montserrat';
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
@@ -31,6 +33,7 @@ body {
     background-position: center;
     background-attachment: scroll;
     background-color: transparent;
+    
   }
   
   .brand-container {
