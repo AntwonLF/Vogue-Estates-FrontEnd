@@ -20,7 +20,6 @@ const NavBar = ({ user, handleSignout }) => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/team">Team</Link></li>
                         <li><Link to="/location">Location</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/listing">Listing</Link></li>
                         {user && <li><Link to="" onClick={handleSignout}>Signout</Link></li>}
                     </ul>

@@ -10,10 +10,6 @@ import * as authService from './services/authServices';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ProtectedRoute = ({ user, children }) => {
-  return user ? children : <Navigate to="/" replace />;
-};
-
 function App() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate(); 
@@ -42,11 +38,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/team" element={<Team />} />
         <Route path="/listing" element={<Listing />} />
-        <Route path="/listingdetails/:id" element={
-          <ProtectedRoute user={user}>
-            <ListingDetails />
-          </ProtectedRoute>
-        } /> 
+        <Route path="/listingdetails/:id" element={<ListingDetails />} /> 
       </Routes>
     </>
   );

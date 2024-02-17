@@ -30,7 +30,7 @@ const LoginForm = (props) => {
       const response = isAgent ? await authService.loginAgent(formData) : await authService.loginClient(formData);
       console.log('Login response:', response); 
       props.handleSignupOrLogin();
-      navigate('/teams'); 
+      navigate('/team'); 
     } catch (err) {
       console.error('Login error:', err); 
       props.setMessage(err.message);
