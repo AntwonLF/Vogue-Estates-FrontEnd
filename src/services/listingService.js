@@ -5,11 +5,13 @@ import * as tokenService from './tokenService'; // Ensure this is correctly set 
 // Assuming VITE_BACK_END_SERVER_URL includes the base domain and possibly base path but not the specific endpoint
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`; // Update this path as needed
 
-const getListingDetails = (listingId) => {
-  return axios.get(`${BASE_URL}/${listingId}`, {
+const getAllListings = () => {
+  return axios.get(`${BASE_URL}listinglist/`, {
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   });
 };
+
+
 
 // Function to add a listing, requiring authentication (typically for agents)
 const addListing = async (listingData, userId) => {
@@ -29,7 +31,7 @@ const addListing = async (listingData, userId) => {
 // Function to update a listing, requiring authentication
 const updateListing = async (listingId, listingData) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${listingId}`, listingData, { // Removed 'update/' to align with REST conventions
+    const response = await axios.put(`${BASE_URL}listing/${listingId}`, listingData, { // Removed 'update/' to align with REST conventions
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     return response.data;
@@ -42,7 +44,7 @@ const updateListing = async (listingId, listingData) => {
 // Optionally, if your application allows for listings to be deleted
 const deleteListing = async (listingId) => {
   try {
-    await axios.delete(`${BASE_URL}/${listingId}`, { // Removed 'delete/' to align with REST conventions
+    await axios.delete(`${BASE_URL}listing/${listingId}`, { // Removed 'delete/' to align with REST conventions
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     // Handle any additional logic or state updates upon successful deletion
@@ -55,7 +57,7 @@ const deleteListing = async (listingId) => {
 
 
 export {
-  getListingDetails,
+  getAllListings,
   addListing,
   updateListing,
   deleteListing,

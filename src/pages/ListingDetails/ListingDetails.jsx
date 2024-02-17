@@ -3,17 +3,26 @@ import { useLocation } from 'react-router-dom';
 
 const ListingDetails = () => {
   const location = useLocation();
-  const { imgUrl } = location.state || { imgUrl: '' };
+  const { listing } = location.state || { listing: null };
 
   return (
     <div>
       <h2>Listing Details</h2>
-      {imgUrl && <img src={imgUrl} alt="Listing Detail" style={{ maxWidth: '100%', height: 'auto' }} />}
+      {listing && listing.images && listing.images[0] && (
+        <img src={listing.images[0].image} alt="Listing Detail" style={{ maxWidth: '100%', height: 'auto' }} />
+      )}
       <p className="property-details">
-        This is a beautiful property located in a serene environment with excellent amenities and a stunning view. It offers a unique blend of comfort, style, and convenience, making it the perfect choice for anyone looking for a peaceful retreat or a vibrant lifestyle.
+        {listing ? listing.description : "No details available."}
       </p>
+      {/* Display other listing details here, e.g., price, location */}
+      {listing && (
+        <div>
+          <p><strong>Price:</strong> ${listing.price}</p>
+          <p><strong>Location:</strong> {listing.location}</p>
+          {/* Add more details as needed */}
+        </div>
+      )}
 
-      
       <div className="contact-form">
         <h3>Contact Us</h3>
         <form>
