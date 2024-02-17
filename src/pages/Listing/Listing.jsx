@@ -8,7 +8,7 @@ import './Listing.css';
 
 const Listing = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [images, setImages] = useState([]); // State to store listing images
+    const [listings, setListings] = useState([]); 
     const navigate = useNavigate();
 
     const settings = {
@@ -25,11 +25,7 @@ const Listing = () => {
             try {
                 const response = await getAllListings();
                 console.log(response);
-                const listingImages = response.data.map(listing => {
-                    return listing.images[0] ? listing.images[0].image : null;
-                }).filter(url => url !== null);
-                setImages(listingImages);
-                console.log(listingImages);
+                setListings(response.data); // Store the entire listing
             } catch (error) {
                 console.error('Failed to fetch listings:', error);
             }
@@ -38,9 +34,10 @@ const Listing = () => {
     }, []);
 
 
-    const handleImageClick = (imgUrl, id) => {
-        navigate(`listing/${id}`, { state: { imgUrl } });
+    const handleImageClick = (listing) => {
+        navigate(`/listing/${listing.id}`);
     };
+    
 
     const toggleModal = () => {
         setIsModalVisible(!isModalVisible);
@@ -50,19 +47,20 @@ const Listing = () => {
         <div className="carousel-container">
             <h2>Image Carousel</h2>
             <Slider {...settings}>
-                {images.map((imgUrl, index) => (
-                    imgUrl ? (
-                        <div key={index} onClick={() => handleImageClick(imgUrl, index)}> {/* Consider using a proper ID instead of index if available */}
-                            <img src={imgUrl} alt={`Slide ${index}`} className="carousel-image" />
+                {listings.map((listing, index) => (
+                    listing.images[0] ? (
+                        <div key={index} onClick={() => handleImageClick(listing)} className="carousel-slide">
+                            <img src={listing.images[0].image} alt={`Slide ${index}`} className="carousel-image" />
                         </div>
-                    ) : null 
+                    ) : null
                 ))}
             </Slider>
-
+    
             <button className="toggle-modal-btn" onClick={toggleModal} style={{ position: 'absolute', bottom: 20, right: 20 }}>Toggle Agent Modal</button>
             {isModalVisible && <AgentModal onClose={toggleModal} />}
         </div>
     );
+    
 };
 
 export default Listing;

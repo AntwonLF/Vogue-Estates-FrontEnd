@@ -16,7 +16,7 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
     bedrooms: '',
     bathrooms: '',
     sqft: '',
-    agent: '', 
+    agent: '',
     images: [{ image: '', description: '' }],
   });
 
@@ -26,15 +26,15 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
     let updatedValue = value;
-    if(type === 'number'){
-       updatedValue =  parseInt(value, 10);
-       if(isNaN(updatedValue)){
-          updatedValue = '';
-       }
+    if (type === 'number') {
+      updatedValue = parseInt(value, 10);
+      if (isNaN(updatedValue)) {
+        updatedValue = '';
       }
+    }
     setListing((prevListing) => ({
       ...prevListing,
-      [name] : updatedValue, 
+      [name]: updatedValue,
     }));
   };
 
@@ -51,25 +51,45 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
     e.preventDefault();
 
     // Retrieve user ID from token
-    const userId = getInfoFromToken('user_id'); 
+    const userId = getInfoFromToken('user_id');
     console.log('userID retrieved:', userId)// Adjust 'userid' based on the actual key in your token payload
 
     if (userId) {
-        const updatedListing = { ...listing, agent: 9 };
-        console.log(updatedListing);
+      const updatedListing = { ...listing, agent: 9 };
+      console.log(updatedListing);
 
-        try {
-            await addListing(updatedListing, userId); 
-            refreshListings();
-            onClose();
-        } catch (error) {
-            setError("Failed to add listing. Please try again."); 
-        }
+      try {
+        await addListing(updatedListing, userId);
+        refreshListings();
+        onClose();
+      } catch (error) {
+        setError("Failed to add listing. Please try again.");
+      }
     } else {
-        setError("User not identified. Please log in again."); 
+      setError("User not identified. Please log in again.");
     }
-};
+  };
 
+  const handleUpdate = async () => {
+    try {
+      await updateListing(listingId, listing); // Assume listingId is the ID of the listing to update
+      refreshListings();
+      onClose();
+    } catch (error) {
+      setError("Failed to update listing. Please try again.");
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      await deleteListing(listingId); // Assume listingId is the ID of the listing to delete
+      refreshListings();
+      onClose();
+    } catch (error) {
+      setError("Failed to delete listing. Please try again.");
+    }
+  };
+  
 
   return (
     <div className="agent-modal">
@@ -113,6 +133,15 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
             placeholder="Enter Image Description"
           />
         </div>
+  
+        {/* Conditional rendering for Update and Delete buttons */}
+        {listingId && (
+          <>
+            <button type="button" onClick={handleUpdate} className="update-btn">Update</button>
+            <button type="button" onClick={handleDelete} className="delete-btn">Delete</button>
+          </>
+        )}
+  
         <div className="action-buttons">
           <button type="submit" className="save-btn">Save</button>
           <button type="button" onClick={onClose} className="close-btn">Close</button>
@@ -121,6 +150,8 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
       </form>
     </div>
   );
-};
+  
+}
+
 
 export default AgentModal;
