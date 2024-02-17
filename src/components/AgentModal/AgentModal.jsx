@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 // import * as tokenService from '../../services/tokenService'; 
 import { getInfoFromToken } from '../../services/tokenService';
 import { addListing, updateListing, deleteListing } from '../../services/listingService'
-import * as tokenService from '../../services/tokenService'; 
-import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
-import { addListing } from '../../services/listingService'
-import './AgentModal.css';
 
-
-const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
+const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
   // Initialize listing state to include an images array and agent as null for integer input
   const [listing, setListing] = useState({
     name: '',
