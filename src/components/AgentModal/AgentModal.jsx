@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-// import * as tokenService from '../../services/tokenService'; 
+import React, { useState, useEffect } from 'react';
 import { getInfoFromToken } from '../../services/tokenService';
 import { addListing, updateListing, deleteListing } from '../../services/listingService'
 
-const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
-  // Initialize listing state to include an images array and agent as null for integer input
+const AgentModal = ({ listingId, onClose, refreshListings, existingListing = null }) => {
   const [listing, setListing] = useState({
     name: '',
     address: '',
@@ -18,20 +16,21 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
     sqft: '',
     agent: '',
     images: [{ image: '', description: '' }],
+    ...existingListing
   });
 
   const [error, setError] = useState('');
 
-  // Generic input change handler with integer parsing for numeric fields
+  useEffect(() => {
+    if (existingListing) {
+      setListing(existingListing);
+    }
+  }, [existingListing]);
+
+
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
-    let updatedValue = value;
-    if (type === 'number') {
-      updatedValue = parseInt(value, 10);
-      if (isNaN(updatedValue)) {
-        updatedValue = '';
-      }
-    }
+    let updatedValue = type === 'number' ? parseInt(value, 10) || '' : value;
     setListing((prevListing) => ({
       ...prevListing,
       [name]: updatedValue,
@@ -49,40 +48,28 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Retrieve user ID from token
     const userId = getInfoFromToken('user_id');
-    console.log('userID retrieved:', userId)// Adjust 'userid' based on the actual key in your token payload
-
-    if (userId) {
-      const updatedListing = { ...listing, agent: 9 };
-      console.log(updatedListing);
-
-      try {
-        await addListing(updatedListing, userId);
-        refreshListings();
-        onClose();
-      } catch (error) {
-        setError("Failed to add listing. Please try again.");
-      }
-    } else {
+    if (!userId) {
       setError("User not identified. Please log in again.");
+      return;
     }
-  };
 
-  const handleUpdate = async () => {
     try {
-      await updateListing(listingId, listing); // Assume listingId is the ID of the listing to update
+      if (listingId) {
+        await updateListing(listingId, listing);
+      } else {
+        await addListing({ ...listing, agent: userId });
+      }
       refreshListings();
       onClose();
     } catch (error) {
-      setError("Failed to update listing. Please try again.");
+      setError(`Failed to ${listingId ? 'update' : 'add'} listing. Please try again.`);
     }
   };
 
   const handleDelete = async () => {
     try {
-      await deleteListing(listingId); // Assume listingId is the ID of the listing to delete
+      await deleteListing(listingId);
       refreshListings();
       onClose();
     } catch (error) {
@@ -94,13 +81,12 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
   return (
     <div className="agent-modal">
       <form onSubmit={handleSubmit} className="agent-modal-form">
-        {/* Dynamic form fields excluding 'id' and 'images' */}
         {Object.keys(listing).map((key) =>
           key !== 'id' && key !== 'images' ? (
             <div className="form-group" key={key}>
               <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
               <input
-                type={key === 'price' || key === 'bedrooms' || key === 'bathrooms' || key === 'sqft' || key === 'agent' ? 'number' : 'text'}
+                type={['price', 'bedrooms', 'bathrooms', 'sqft', 'agent'].includes(key) ? 'number' : 'text'}
                 id={key}
                 name={key}
                 value={listing[key]}
@@ -110,7 +96,6 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
             </div>
           ) : null
         )}
-        {/* Image URL and Description Input */}
         <div className="form-group">
           <label htmlFor="image">Image URL</label>
           <input
@@ -133,15 +118,12 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
             placeholder="Enter Image Description"
           />
         </div>
-  
-        {/* Conditional rendering for Update and Delete buttons */}
         {listingId && (
           <>
-            <button type="button" onClick={handleUpdate} className="update-btn">Update</button>
             <button type="button" onClick={handleDelete} className="delete-btn">Delete</button>
+            <button type="button" onClick={handleUpdate} className="update-btn">Update</button>
           </>
         )}
-  
         <div className="action-buttons">
           <button type="submit" className="save-btn">Save</button>
           <button type="button" onClick={onClose} className="close-btn">Close</button>
@@ -150,8 +132,7 @@ const AgentModal = ({ listingId, onClose, refreshListings,  }) => {
       </form>
     </div>
   );
-  
-}
+};
 
 
 export default AgentModal;
