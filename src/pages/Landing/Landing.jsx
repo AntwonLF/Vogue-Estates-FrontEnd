@@ -8,7 +8,7 @@ const Landing = ({ handleSignupOrLogin }) => {
   const [currentForm, setCurrentForm] = useState('login');
 
   return (
-    <div className="landing-container" style={{ backgroundImage: `url('../../assets/10_miami_914_690.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
+    <div className="landing-container">
       <div className="brand-container">
         <h1 className="brand-title">Vogue Estateś</h1>
         <p className="brand-subtitle">Where luxury meets realty</p>

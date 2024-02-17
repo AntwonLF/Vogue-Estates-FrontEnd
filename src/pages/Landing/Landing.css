@@ -56,7 +56,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 50px;
+    padding: 0 px;
     background-color: #fff; /* Set a background color for the form section */
     width: 100%; /* Match the width of the about-section */
     margin-top: 0; /* Ensure there's no top margin creating a gap */
