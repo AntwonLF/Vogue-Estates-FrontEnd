@@ -1,9 +1,22 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { deleteListing } from '../../services/listingService';
 
 const ListingDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { listing } = location.state || { listing: null };
+  
+  const handleDelete = async () => {
+    if (listing && listing.id) {
+      try {
+        await deleteListing(listing.id);
+        navigate('/'); 
+      } catch (error) {
+        console.error('Failed to delete listing:', error);
+      }
+    }
+  };
 
   return (
     <div>
@@ -32,6 +45,7 @@ const ListingDetails = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <button onClick={handleDelete} className="delete-btn">Delete Listing</button>
     </div>
   );
 };

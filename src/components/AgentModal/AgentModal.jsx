@@ -4,9 +4,8 @@ import * as tokenService from '../../services/tokenService';
 import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
 import { addListing } from '../../services/listingService'
 
-const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
-  // Initialize listing state to include an images array and agent as null for integer input
-  const [listing, setListing] = useState({
+const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId, existingListing }) => {
+  const [listing, setListing] = useState( existingListing || {
     name: '',
     address: '',
     city: '',
@@ -50,26 +49,24 @@ const AgentModal = ({ listingId, mode, onClose, refreshListings, userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Retrieve user ID from token
-    const userId = getInfoFromToken('user_id'); 
-    console.log('userID retrieved:', userId)// Adjust 'userid' based on the actual key in your token payload
+    const userId = getInfoFromToken('user_id');
 
     if (userId) {
-        const updatedListing = { ...listing, agent: 9 };
-        console.log(updatedListing);
-
-        try {
-            await addListing(updatedListing, userId); 
-            refreshListings();
-            onClose();
-        } catch (error) {
-            setError("Failed to add listing. Please try again."); 
+      try {
+        if (mode === "add") {
+          await addListing(listing, userId);
+        } else if (mode === "update") {
+          await updateListing(listingId, listing); // Ensure updateListing is correctly implemented
         }
+        refreshListings();
+        onClose();
+      } catch (error) {
+        setError("Failed to process listing. Please try again.");
+      }
     } else {
-        setError("User not identified. Please log in again."); 
+      setError("User not identified. Please log in again.");
     }
-};
+  };
 
 
   return (
