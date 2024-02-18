@@ -18,7 +18,7 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
       color: 'black',
     },
     enter: [
-        { opacity: 1, height: 150, innerHeight: 90 },
+        { opacity: 1, height: 170, innerHeight: 90 },
       ],
       leave: [{ color: 'black' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
       config: {
