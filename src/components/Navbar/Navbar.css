@@ -29,19 +29,23 @@
 }
 
 .dropdown-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
     top: 100%; /* Position just below the navbar */
     left: 0; /* Position the dropdown menu to the left */
-    background-color: transparent;
+    background-color: #f0f8ff; /* Set a solid background color */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-size: XX-large;
-    color:Black;
+    font-size: 150%;
+    color: Black;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    z-index: 1000;
 }
 
 .dropdown-menu.show {
-    display: block; /* Show the dropdown when toggled */
+    max-height: 500px; /* Adjust as needed */
+    opacity: 1;
 }
 
 .dropdown-menu ul {
@@ -63,9 +67,10 @@
     padding: 10px;
     color: black;
     text-decoration: none;
+    background-color:  #ffffffe1;
 }
 
 .dropdown-menu ul li a:hover {
     text-decoration: underline;
-    background-color: rgba(240, 248, 255, 0.501);
+
 }

@@ -18,15 +18,15 @@ const NavBar = ({ user, handleSignout, formSectionRef }) => {
 
     return (
         <div className="Nav">
-            <button className="dropdown" onClick={toggleDropdown}>{dropdownOpen? 'X' : 'Menu'}</button>
+            <button className="dropdown" onClick={toggleDropdown}>{dropdownOpen? 'Close' : 'Menu'}</button>
             {dropdownOpen && (
                 <nav className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/team">Team</Link></li>
-                        <li><Link to="/location">Location</Link></li>
-                        <li><Link to="/listing">Listing</Link></li>
-                        {user && <li><Link to="" onClick={handleSignout}>Signout</Link></li>}
+                        <li><Link onClick={toggleDropdown} to="/">Home</Link></li>
+                        <li><Link onClick={toggleDropdown} to="/team">Team</Link></li>
+                        <li><Link onClick={toggleDropdown} to="/location">Location</Link></li>
+                        <li><Link onClick={toggleDropdown} to="/listing">Listing</Link></li>
+                        {user && <li><Link  to="" onClick={handleSignout}>Signout</Link></li>}
                     </ul>
                 </nav>
             )}
