@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css'
 
 
-const NavBar = ({ user, handleSignout }) => {
+const NavBar = ({ user, handleSignout, formSectionRef }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
+    const location = useLocation()
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
+    const scrollToFormSection = () => {
+        if (formSectionRef) {
+          formSectionRef.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
 
     return (
         <div className="Nav">
@@ -25,6 +30,9 @@ const NavBar = ({ user, handleSignout }) => {
                     </ul>
                 </nav>
             )}
+            { location.pathname ===  '/'? 
+            <p className='dropdown' onClick={scrollToFormSection}>Login/Sign Up</p> : ''
+            }
         </div>
     );
 };

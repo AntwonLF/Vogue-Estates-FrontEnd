@@ -55,6 +55,7 @@ const LoginForm = (props) => {
       </div>
       <div>
         <input
+          className="password"
           type="password"
           autoComplete="off"
           name="password"
@@ -65,7 +66,7 @@ const LoginForm = (props) => {
         />
       </div>
       <div>
-        <label>
+        <label className='check-box'>
           <input type="checkbox" checked={isAgent} onChange={toggleUserType} /> Login as Agent
         </label>
       </div>
