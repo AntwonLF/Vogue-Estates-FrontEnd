@@ -1,0 +1,19 @@
+.glow-on-hover {
+    background-color: black;
+    color: white;
+    
+}
+
+.login-button {
+    align-items: flex-start;
+    margin: 10px 62px;
+}
+
+.password{
+    padding: 9px;
+    width: 99%;
+    border: solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+

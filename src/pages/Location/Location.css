@@ -1,0 +1,40 @@
+ /* .location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+  }  */
+  
+  
+  
+  .location-container {
+    background-color: white; /* Set background to white for location page */
+  }
+
+  .location-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333; 
+    margin-top: 50px;
+  }
+  
+  .image-wrapper {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+    margin: auto;
+  }
+  
+  .location-image {
+    max-width: 200%;
+    height: auto;
+  }
+
+  
