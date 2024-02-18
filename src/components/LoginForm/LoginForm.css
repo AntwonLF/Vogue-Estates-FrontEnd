@@ -12,6 +12,7 @@
 .password{
     padding: 9px;
     width: 99%;
+    border: solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }

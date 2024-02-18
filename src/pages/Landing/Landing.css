@@ -9,7 +9,7 @@ body {
 
   .landing-container {
     background-image: url('../../assets/6ITdarf.jpg');
-    margin-top: -67px;
+    margin-top: -142px;
     font-family: 'Montserrat';
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
