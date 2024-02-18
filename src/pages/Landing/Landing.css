@@ -78,7 +78,8 @@ body {
   }
   
   .toggle-button {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px 20px;
     border: none;
     background-color: black;
@@ -96,9 +97,9 @@ body {
     margin-bottom: 0;
   }
 
-  .form-section * {
+  /* .form-section * {
     margin-top: 0;
-  }
+  } */
   
 
   .brand-subtitle {

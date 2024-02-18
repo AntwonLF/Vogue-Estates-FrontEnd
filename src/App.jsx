@@ -30,11 +30,17 @@ function App() {
     navigate('/'); 
   };
 
+  const [formSectionRef, setFormSectionRef] =useState(null);
+
+  const handleFormSectionRef = (ref) => {
+    setFormSectionRef(ref);
+  };
+
   return (
     <>
-      <NavBar user={user} handleSignout={handleSignout} />
+      <NavBar formSectionRef={formSectionRef} user={user} handleSignout={handleSignout} />
       <Routes>
-        <Route path='/' element={<Landing handleSignupOrLogin={handleSignupOrLogin} />} />
+        <Route path='/'  element={<Landing handleSignupOrLogin={handleSignupOrLogin} onFormSectionMounted={handleFormSectionRef}/>} />
         <Route path="/location" element={<Location />} />
         <Route path="/team" element={<Team />} />
         <Route path="/listing" element={<Listing />} />

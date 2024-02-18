@@ -4,9 +4,10 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import './Landing.css'; 
 import { useTransition, animated } from '@react-spring/web'
 
-const Landing = ({ handleSignupOrLogin }) => {
+const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
   const [message, setMessage] = useState('');
   const [currentForm, setCurrentForm] = useState('login');
+  const formSectionRef = useRef(null)
   const ref = useRef([])
   const [items, set] = useState([])
   const transitions = useTransition(items, {
@@ -20,6 +21,11 @@ const Landing = ({ handleSignupOrLogin }) => {
         { opacity: 1, height: 150, innerHeight: 90 },
       ],
       leave: [{ color: 'black' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
+      config: {
+        duration: 1000,
+        tension: 270,
+        friction: 26
+      }
     })
 
     const reset = useCallback(() => {
@@ -27,13 +33,19 @@ const Landing = ({ handleSignupOrLogin }) => {
         ref.current = []
         set([])
         ref.current.push(setTimeout(() => set([<h1 className="brand-title">Vogue Estateś</h1>,
-        <p className="brand-subtitle">Where luxury meets realty</p>]), 1000))
+        <p className="brand-subtitle">Where luxury meets realty</p>]), 10))
       }, [])
     
       useEffect(() => {
         reset()
         return () => ref.current.forEach(clearTimeout)
       }, [])
+
+      useEffect(() => {
+        if (formSectionRef.current) {
+          onFormSectionMounted(formSectionRef.current);
+        }
+      }, [formSectionRef, onFormSectionMounted]);
 
   return (
     <div className="landing-container">
@@ -59,7 +71,7 @@ const Landing = ({ handleSignupOrLogin }) => {
         <p>Our dedicated team works tirelessly to ensure that from the moment you step through our doors, you're not just a client but a valued member of the Vogue Estates family. Our mission, our passion, is to deliver an unparalleled living experience that caters to your every need, ensuring that your home in Miami is not just a sanctuary of peace and elegance, but also a reflection of the city's vibrant spirit.</p>
       </div>
       {/* Forms moved outside of the main background container to a new section */}
-      <div className="form-section"> {/* New wrapper for forms */}
+      <div ref={formSectionRef} className="form-section"> {/* New wrapper for forms */}
         {currentForm === 'login' ? (
           <LoginForm
             message={message}
