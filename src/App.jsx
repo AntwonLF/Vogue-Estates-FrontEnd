@@ -40,7 +40,8 @@ function App() {
     <>
       <NavBar formSectionRef={formSectionRef} user={user} handleSignout={handleSignout} />
       <Routes>
-        <Route path='/'  element={<Landing handleSignupOrLogin={handleSignupOrLogin} onFormSectionMounted={handleFormSectionRef}/>} />
+      <Route path='/' element={<Landing user={user} handleSignupOrLogin={handleSignupOrLogin} onFormSectionMounted={handleFormSectionRef}/>} />
+
         <Route path="/location" element={<Location />} />
         <Route path="/team" element={<Team />} />
         <Route path="/listing" element={<Listing />} />

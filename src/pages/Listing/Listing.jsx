@@ -1,14 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom'; // Ensure this matches your router version
 import AgentModal from '../../components/AgentModal/AgentModal';
-import { getAllListings } from '../../services/listingService'; 
+import { getAllListings } from '../../services/listingService';
 
 import './Listing.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const CustomPrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={`${className} custom-arrow custom-prev`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            &#10094; 
+        </div>
+    );
+};
+
+const CustomNextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={`${className} custom-arrow custom-next`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            &#10095; 
+        </div>
+    );
+};
 
 const Listing = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [listings, setListings] = useState([]); 
+    const [listings, setListings] = useState([]);
     const navigate = useNavigate();
 
     const settings = {
@@ -18,6 +46,8 @@ const Listing = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         centerMode: true,
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
     };
 
     useEffect(() => {
@@ -33,11 +63,9 @@ const Listing = () => {
         fetchListings();
     }, []);
 
-
     const handleImageClick = (listing) => {
         navigate(`/listing/${listing.id}`, { state: { listing } });
     };
-    
 
     const toggleModal = () => {
         setIsModalVisible(!isModalVisible);
@@ -60,7 +88,6 @@ const Listing = () => {
             {isModalVisible && <AgentModal onClose={toggleModal} />}
         </div>
     );
-    
 };
 
 export default Listing;
