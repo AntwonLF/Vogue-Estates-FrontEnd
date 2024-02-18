@@ -1,0 +1,16 @@
+/* Default styles */
+
+/* Styles for screens with max-width of 600px */
+@media (max-width: 600px) {
+    /* CSS rules specific to smaller screens */
+}
+
+/* Styles for screens with min-width of 601px and max-width of 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+    /* CSS rules specific to medium-sized screens */
+}
+
+/* Styles for screens with min-width of 901px */
+@media (min-width: 901px) {
+    /* CSS rules specific to larger screens */
+}
