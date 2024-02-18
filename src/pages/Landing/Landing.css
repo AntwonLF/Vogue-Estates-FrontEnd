@@ -8,7 +8,7 @@ body {
   
 
   .landing-container {
-    background-image: url('../../assets/6ITdarf.jpg');
+    background-image: url('../../assets/jnpZLID.png');
     margin-top: -142px;
     font-family: 'Montserrat';
     display: grid;
@@ -18,12 +18,13 @@ body {
     align-items: start; /* Align items to the start of the container */
     justify-content: center;
     min-height: 100vh; /* Minimum height to cover the viewport */
-    background-size: cover;
+    background-size: contain; /* Adjusted to contain */
     background-position: center;
     background-attachment: scroll;
     background-color: transparent;
-    
-  }
+    background-repeat: no-repeat;
+    background-position: center top;   
+}
   
   .brand-container {
     margin-top: 200px;

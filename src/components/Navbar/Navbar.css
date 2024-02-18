@@ -1,47 +1,61 @@
+/* Navbar.css */
 .Nav {
-    position: sticky; /* Fix the navbar at the top */
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align the menu to the right */
+    justify-content: flex-start;
     background-color: transparent;
     color: black;
     padding: 10px;
-    /* z-index: 1000; Ensure the navbar is above other content */
 }
 
-.Nav .dropdown {
-    /* background-color: #444; Slightly lighter than the navbar for contrast */
-    color: black;
+.menu-icon {
+    width: 35px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-icon div {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+}
+
+.dropdown {
     border: none;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
     background-color: transparent;
-    font-size: xx-large
-    
+    font-size: xx-large;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 300;
 }
 
-.Nav .dropdown:hover {
+.dropdown:hover {
     text-decoration: underline;
 }
 
 .dropdown-menu {
-    position:inherit;
-    top: 100%; /* Position just below the navbar */
-    left: 0; /* Position the dropdown menu to the left */
-    background-color: #f0f8ff; /* Set a solid background color */
+    position: inherit;
+    top: 100%;
+    left: 0;
+    background-color: #f0f8ff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 150%;
-    color: Black;
+    color: black;
     z-index: 1000;
 }
 
 .dropdown-menu.show {
-    /* display: block; Show the dropdown when toggled */
     display: flex;
     flex-direction: column;
     width: 25%;
@@ -59,11 +73,11 @@
 }
 
 .dropdown-menu ul li {
-    border-bottom: 1px solid #444; /* Separator between items */
+    border-bottom: 1px solid #444;
 }
 
 .dropdown-menu ul li:last-child {
-    border-bottom: none; /* No border for the last item */
+    border-bottom: none;
 }
 
 .dropdown-menu ul li a {
@@ -76,5 +90,4 @@
 
 .dropdown-menu ul li a:hover {
     text-decoration: underline;
-
 }
