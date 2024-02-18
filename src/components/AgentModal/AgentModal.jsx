@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import * as tokenService from '../../services/tokenService'; 
 import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
 import { addListing } from '../../services/listingService'
+import './AgentModal.css';
 
 const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId, existingListing }) => {
   const [listing, setListing] = useState( existingListing || {
@@ -122,4 +122,3 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
 };
 
 export default AgentModal;
-
