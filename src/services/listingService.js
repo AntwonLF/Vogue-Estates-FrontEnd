@@ -31,7 +31,7 @@ const addListing = async (listingData, userId) => {
 // Function to update a listing, requiring authentication
 const updateListing = async (listingId, listingData) => {
   try {
-    const response = await axios.put(`${BASE_URL}listing/${listingId}`, listingData, { // Removed 'update/' to align with REST conventions
+    const response = await axios.put(`${BASE_URL}listing/${listingId}/`, listingData, { // Removed 'update/' to align with REST conventions
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     });
     return response.data;
