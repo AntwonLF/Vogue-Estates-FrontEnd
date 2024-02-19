@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import * as tokenService from '../../services/tokenService'; 
-import { getUserFromToken, getInfoFromToken } from '../../services/tokenService';
-import { addListing } from '../../services/listingService'
+import { getInfoFromToken } from '../../services/tokenService';
+import { addListing } from '../../services/listingService';
 import './AgentModal.css';
 
 const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId, existingListing }) => {
-  const [listing, setListing] = useState( existingListing || {
+  const [listing, setListing] = useState(existingListing || {
     name: '',
     address: '',
     city: '',
@@ -22,22 +22,20 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
 
   const [error, setError] = useState('');
 
-  // Generic input change handler with integer parsing for numeric fields
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
     let updatedValue = value;
-    if(type === 'number'){
-       updatedValue =  parseInt(value, 10);
-       if(isNaN(updatedValue)){
-          updatedValue = '';
-       }
+    if (type === 'number') {
+      updatedValue = parseInt(value, 10);
+      if (isNaN(updatedValue)) {
+        updatedValue = '';
       }
+    }
     setListing((prevListing) => ({
       ...prevListing,
-      [name] : updatedValue, 
+      [name]: updatedValue, 
     }));
   };
-
 
   const handleImageChange = (e) => {
     const { name, value } = e.target;
@@ -53,11 +51,8 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
 
     if (userId) {
       try {
-        if (mode === "add") {
-          await addListing(listing, userId);
-        } else if (mode === "update") {
-          await updateListing(listingId, listing); // Ensure updateListing is correctly implemented
-        }
+        // Only handle adding a listing, removed update functionality
+        await addListing(listing, userId);
         refreshListings();
         onClose();
       } catch (error) {
@@ -68,11 +63,9 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
     }
   };
 
-
   return (
     <div className="agent-modal">
       <form onSubmit={handleSubmit} className="agent-modal-form">
-        {/* Dynamic form fields excluding 'id' and 'images' */}
         {Object.keys(listing).map((key) =>
           key !== 'id' && key !== 'images' ? (
             <div className="form-group" key={key}>
@@ -88,7 +81,6 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
             </div>
           ) : null
         )}
-        {/* Image URL and Description Input */}
         <div className="form-group">
           <label htmlFor="image">Image URL</label>
           <input

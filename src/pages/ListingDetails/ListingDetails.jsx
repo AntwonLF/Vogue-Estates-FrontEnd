@@ -11,7 +11,7 @@ const ListingDetails = () => {
     if (listing && listing.id) {
       try {
         await deleteListing(listing.id);
-        navigate('/'); 
+        navigate('/listing'); 
       } catch (error) {
         console.error('Failed to delete listing:', error);
       }
