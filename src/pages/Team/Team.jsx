@@ -54,7 +54,7 @@ const Team = () => {
             <div className="container">
               <h2>Wyatt Smith</h2>
               <p className="title">Intern</p>
-              <p>Despite being an intern, their contributions have been invaluable, actively assisting in various projects and tasks with enthusiasm and dedication. Their eagerness to learn and willingness to take on challenges have significantly enriched the team dynamic</p>
+              <p>Despite being an intern, his contributions have been invaluable, actively assisting in various projects and tasks with enthusiasm and dedication. His eagerness to learn and willingness to take on challenges have significantly enriched the team dynamic</p>
               <p>WyattS@vogueestates.com</p>
               <p><button className="button">Contact</button></p>
             </div>
