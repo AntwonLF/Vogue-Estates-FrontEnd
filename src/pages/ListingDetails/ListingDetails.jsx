@@ -14,13 +14,16 @@ const ListingDetails = () => {
     const { name, value } = e.target;
     setListing({ ...listing, [name]: value });
   };
+  const handleBack = () => {
+    navigate('/listing'); 
+  };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (listing && listing.id) {
       try {
         await updateListing(listing.id, listing);
-        navigate('/listing'); // Navigate to listing page or stay on the details page
+        navigate('/listing'); 
         setIsEditing(false); 
       } catch (error) {
         console.error('Failed to update listing:', error);
@@ -150,6 +153,7 @@ const ListingDetails = () => {
   return (
     <div>
       <h2>Listing Details</h2>
+      <button onClick={handleBack} className="back-btn">Back to Listings</button>
       {isEditing ? editModeView : displayModeView}
       <div className="action-buttons">
         <button onClick={() => setIsEditing(!isEditing)} className="edit-btn">{isEditing ? 'Cancel' : 'Edit'}</button>
