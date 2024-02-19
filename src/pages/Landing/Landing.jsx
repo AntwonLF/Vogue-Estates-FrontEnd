@@ -83,7 +83,7 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
         <p>In addition to its luxurious living and dining offerings, Miami is also a paradise for those seeking upscale shopping experiences. The city boasts an impressive array of high-end boutiques, designer flagship stores, and upscale shopping centers that cater to the elite shopper. From the iconic Bal Harbour Shops, featuring prestigious luxury brands like Chanel, Gucci, and Prada, to the upscale shopping districts of Lincoln Road and the Design District, Miami offers a world-class shopping experience that rivals any global fashion capital. With its blend of luxury living, fine dining, and upscale shopping, Miami stands as a beacon of extravagance and refinement, enticing visitors and residents alike to indulge in the lap of luxury.</p>
       </div>
 
-      <div className="carousel-container">
+      <div className="Mycarousel-container">
   <Slider
   dots={true}
   arrows={true}

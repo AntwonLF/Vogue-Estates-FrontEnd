@@ -180,14 +180,14 @@ body {
   /* Add additional style adjustments as needed */
 }
 
-.carousel-container {
+.Mycarousel-container {
   max-width: 1350px; /* Adjust the maximum width of the container */
   margin: 0 auto;
   padding: 0 20px; /* Add padding to create space between the images */
 }
 
 
-.carousel-container img {
+.Mycarousel-container img {
   width: 100%; /* Ensure images take full width of the container */
   height: auto; /* Maintain aspect ratio */
   max-width: 300px; /* Set a maximum width for the images */
