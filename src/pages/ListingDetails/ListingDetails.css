@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
@@ -8,16 +9,6 @@ h2 {
   text-align: center;
   color: #333;
 }
-
-
-div {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 
 input[type="text"],
 input[type="number"] {
@@ -39,12 +30,12 @@ button {
 }
 
 .update-btn, .edit-btn, .delete-btn {
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
 }
 
 .delete-btn {
-  background-color: #dc3545;
+  background-color: #3f3c3c;
 }
 
 .back-btn {
@@ -66,9 +57,11 @@ img {
   margin: 0 auto 20px auto;
 }
 
+
 .property-details, .contact-form {
   margin-top: 20px;
 }
+
 
 .action-buttons button {
   margin-top: 10px; 
