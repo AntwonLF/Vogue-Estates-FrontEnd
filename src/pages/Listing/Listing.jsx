@@ -73,7 +73,7 @@ const Listing = () => {
 
     return (
         <div className="carousel-container">
-            <h2>Image Carousel</h2>
+            <h2>Exclusive Listings</h2>
             <Slider {...settings}>
                 {listings.map((listing, index) => (
                     listing.images[0] ? (
