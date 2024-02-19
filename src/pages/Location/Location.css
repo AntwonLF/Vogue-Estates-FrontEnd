@@ -1,40 +1,58 @@
- /* .location-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f0f0f0;
-  }  */
-  
-  
-  
-  .location-container {
-    background-color: white; /* Set background to white for location page */
-  }
+.location-container {
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+}
 
+.location-title {
+  font-size: calc(1rem + 0.5vw); /* Responsive font size */
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.image-wrapper iframe {
+  width: 100%; /* Full width of the container */
+  height: 50vh; /* Adjust height based on viewport height */
+  border: none; /* Removes the default iframe border */
+}
+
+.separator {
+  border-top: 2px solid #000000;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.container__inner {
+  position: relative;
+  background-image: url("https://www.worldatlas.com/r/w1300/upload/df/29/12/shutterstock-490898872.jpg");
+  margin-top: -142px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: start;
+  justify-content: center;
+  min-height: 50vh;
+  max-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  /* margin-bottom: 20px; */
+  background-color: white;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
   .location-title {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #333; 
-    margin-top: 50px;
-  }
-  
-  .image-wrapper {
-    width: 60%; 
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-    margin: auto;
-  }
-  
-  .location-image {
-    max-width: 200%;
-    height: auto;
+    font-size: calc(1rem + 1vw); /* Larger font size for smaller screens */
   }
 
-  
+  .image-wrapper iframe {
+    height: 50vh; /* Smaller height for smaller screens */
+  }
+}
