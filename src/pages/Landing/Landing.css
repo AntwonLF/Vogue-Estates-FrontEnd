@@ -9,6 +9,7 @@ body {
 
   .landing-container {
     background-image: url('../../assets/jnpZLID.png');
+    background-size: 1000px auto;
     margin-top: -142px;
     font-family: 'Montserrat';
     display: grid;
@@ -27,7 +28,7 @@ body {
 }
   
   .brand-container {
-    margin-top: 200px;
+    margin-top: 110px;
     margin-bottom: 150px; 
     text-align: center;
   }
@@ -65,11 +66,14 @@ body {
     margin-bottom: 0px;
     }
   
+  
   .brand-subtitle {
-    font-size: 1.5rem;
-    color: #0e0c0c;
-    margin-bottom: 10px;
-    font-weight: bold;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+    box-sizing: border-box;
   }
   
   .brand-description {
@@ -103,14 +107,7 @@ body {
   } */
   
 
-  .brand-subtitle {
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.4;
-    box-sizing: border-box;
-  }
+ 
 
 
 
@@ -143,3 +140,48 @@ body {
     justify-content: center;
   }
   
+
+/* Base styles */
+/* ... Your existing CSS ... */
+
+/* Media Queries */
+/* Media Queries */
+@media screen and (max-width: 768px) {
+
+  .brand-title {
+    font-size: 2rem; /* Smaller font size for smaller screens */
+    margin-bottom: 5px;
+  }
+
+  .brand-subtitle, .brand-description {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    margin-top: 2px;
+  }
+
+  .brand-container, .about-section, .form-section {
+    margin: 0px; /* Adjust margins for smaller screens */
+    padding: 0px; /* Adjust padding for smaller screens */
+  }
+
+  .landing-container {
+    background-size: cover; /* Change background size for better coverage */
+    grid-template-columns: 1fr; /* Adjust grid layout for smaller screens */
+    background-size: 1000px ; /* Adjust the size to what looks best */
+    background-position: top center; /* Adjust the position if needed */
+    background-attachment: scroll;
+  }
+
+  .transitionsItem {
+    font-size: 2em; /* Smaller font size for the animation */
+    line-height: 50px; /* Adjust line height for smaller screens */
+    margin-top: 15px; 
+  }
+
+  .container, .main {
+    padding: 10px; /* Adjust padding for these elements */
+    margin: 10px auto; /* Adjust margin for better centering */
+  }
+
+  /* Add additional style adjustments as needed */
+}
+
