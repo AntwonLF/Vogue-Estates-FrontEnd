@@ -25,7 +25,7 @@ function App() {
   };
 
   const handleSignout = () => {
-    authService.logoutUser();
+    authService.signout();
     setUser(null);
     navigate('/'); 
   };
