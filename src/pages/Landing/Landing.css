@@ -140,11 +140,6 @@ body {
     justify-content: center;
   }
   
-
-/* Base styles */
-/* ... Your existing CSS ... */
-
-/* Media Queries */
 /* Media Queries */
 @media screen and (max-width: 768px) {
 
@@ -185,3 +180,17 @@ body {
   /* Add additional style adjustments as needed */
 }
 
+.carousel-container {
+  max-width: 1350px; /* Adjust the maximum width of the container */
+  margin: 0 auto;
+  padding: 0 20px; /* Add padding to create space between the images */
+}
+
+
+.carousel-container img {
+  width: 100%; /* Ensure images take full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 300px; /* Set a maximum width for the images */
+  max-height: 200px; /* Set a maximum height for the images */
+  object-fit: cover; /* Ensure that images cover their container while preserving aspect ratio */
+}
