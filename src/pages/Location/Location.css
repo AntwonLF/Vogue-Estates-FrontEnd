@@ -15,7 +15,7 @@
 }
 
 .image-wrapper iframe {
-  width: 100%; /* Full width of the container */
+  width: 50vw; /* Full width of the container */
   height: 50vh; /* Adjust height based on viewport height */
   border: none; /* Removes the default iframe border */
 }
@@ -54,5 +54,6 @@
 
   .image-wrapper iframe {
     height: 50vh; /* Smaller height for smaller screens */
+    width: 80vw;
   }
 }
