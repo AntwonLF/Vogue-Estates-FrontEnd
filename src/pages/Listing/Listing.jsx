@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-import { useNavigate } from 'react-router-dom'; // Ensure this matches your router version
+import { useNavigate } from 'react-router-dom';
 import AgentModal from '../../components/AgentModal/AgentModal';
 import { getAllListings } from '../../services/listingService';
 
@@ -16,7 +16,7 @@ const CustomPrevArrow = (props) => {
             style={{ ...style }}
             onClick={onClick}
         >
-            &#10094; 
+            &#10094;
         </div>
     );
 };
@@ -29,7 +29,7 @@ const CustomNextArrow = (props) => {
             style={{ ...style }}
             onClick={onClick}
         >
-            &#10095; 
+            &#10095;
         </div>
     );
 };
@@ -37,6 +37,7 @@ const CustomNextArrow = (props) => {
 const Listing = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [listings, setListings] = useState([]);
+    const [isDragging, setIsDragging] = useState(false);
     const navigate = useNavigate();
 
     const settings = {
@@ -48,6 +49,11 @@ const Listing = () => {
         centerMode: true,
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
+        beforeChange: () => setIsDragging(true),
+        afterChange: () => setIsDragging(false),
+        swipe: true,
+        swipeToSlide: true,
+        draggable: true,
     };
 
     useEffect(() => {
@@ -63,8 +69,10 @@ const Listing = () => {
         fetchListings();
     }, []);
 
-    const handleImageClick = (listing) => {
-        navigate(`/listing/${listing.id}`, { state: { listing } });
+    const handleImageClick = (listing, event) => {
+        if (!isDragging) {
+            navigate(`/listing/${listing.id}`, { state: { listing } });
+        }
     };
 
     const toggleModal = () => {
@@ -77,7 +85,7 @@ const Listing = () => {
             <Slider {...settings}>
                 {listings.map((listing, index) => (
                     listing.images[0] ? (
-                        <div key={index} onClick={() => handleImageClick(listing)} className="carousel-slide">
+                        <div key={index} onClick={(event) => handleImageClick(listing, event)} className="carousel-slide">
                             <img src={listing.images[0].image} alt={`Slide ${index}`} className="carousel-image" />
                         </div>
                     ) : null

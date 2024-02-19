@@ -1,38 +1,86 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
 
-.property-details {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
- 
-  .contact-form {
-    margin-top: 40px;
-  }
-  
-  .contact-form form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-  }
-  
-  .contact-form input,
-  .contact-form button {
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+
+div {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+input[type="text"],
+input[type="number"] {
+  width: calc(100% - 22px); 
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.update-btn, .edit-btn, .delete-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.back-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+
+.action-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px auto;
+}
+
+.property-details, .contact-form {
+  margin-top: 20px;
+}
+
+.action-buttons button {
+  margin-top: 10px; 
+}
+
+@media (max-width: 768px) {
+  div {
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
   }
-  
-  .contact-form button {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+
+  button {
+    margin-top: 10px;
+    width: 100%; 
   }
-  
-  /* .contact-form input[type="tel"] {
-  
-  }
-   */
-  
-  
+}
