@@ -29,7 +29,7 @@
 
 .container__inner {
   position: relative;
-  background-image: url("https://www.worldatlas.com/r/w1300/upload/df/29/12/shutterstock-490898872.jpg");
+  background-image: url(../../assets/DWiqMr3.jpg);
   margin-top: -142px;
   display: grid;
   grid-template-columns: 1fr;
