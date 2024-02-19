@@ -1,7 +1,7 @@
 .agent-modal {
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.8); 
   padding: 20px;
   max-width: 600px;
   margin: 0 auto;
@@ -17,7 +17,12 @@
 }
 
 label {
-  font-weight: bold;
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  
+  font-weight: 300;
+  color: black;
+  margin-bottom: 0px;
 }
 
 input[type="text"],
@@ -60,3 +65,12 @@ input[type="number"] {
   font-size: 14px;
   margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+

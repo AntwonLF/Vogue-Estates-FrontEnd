@@ -38,3 +38,16 @@
   .custom-next {
     right: -25px;
   }
+
+  .toggle-modal-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black; /* Set background color to black */
+    color: white; /* Set text color to white */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer;
+    z-index: 100; 
+}
