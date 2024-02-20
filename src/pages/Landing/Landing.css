@@ -49,10 +49,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 px;
+    padding-top: 10px;
     background-color: #fff; /* Set a background color for the form section */
     width: 100%; /* Match the width of the about-section */
-    margin-top: 0; /* Ensure there's no top margin creating a gap */
+
   }
   
   .brand-title {
@@ -140,6 +140,76 @@ body {
     justify-content: center;
   }
   
+  .inquiry {
+    background-color: white;
+    padding: 2vh 40vw; /* Adjust horizontal padding for better spacing */
+    max-width: 500px;
+    margin: auto; /* Center the inquiry form */
+  }
+  
+  .input-row {
+    display: flex;
+    justify-content: space-between; /* Keep space between the input groups */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  }
+  
+  .input-group {
+    flex-basis: 48%; /* Adjust for more space between groups */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Space below each group */
+  }
+  
+  .inquiry label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .inquiry input[type="text"],
+  .inquiry input[type="email"],
+  .inquiry textarea {
+    width: 100%;
+    padding: 8px;
+    border: none; /* Remove the default border */
+    border-bottom: 2px solid black; /* Solid black line at the bottom */
+    box-sizing: border-box; /* To ensure padding doesn't affect the overall width */
+    border-radius: 0; /* Remove curvature */
+  }
+  
+  .inquiry input[type="text"]:focus,
+  .inquiry input[type="email"]:focus,
+  .inquiry textarea:focus {
+    outline: none; /* Remove the focus outline */
+    border-bottom: 2px solid #555; /* Change the border color on focus */
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: center; /* Center the button */
+    width: 100%; /* Full width to align with other elements */
+  }
+  
+  .inquiry input[type="submit"] {
+    color: black;
+    background-color: white;
+    padding: 10px 15px;
+    border: solid black 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Remove text underline */
+    border-radius: 10px; /* Remove curvature from button */
+  }
+  
+  .inquiry input[type="submit"]:hover {
+    background-color: whitesmoke;
+  }
+  
+  
+/* Base styles */
+/* ... Your existing CSS ... */
+
+/* Media Queries */
 /* Media Queries */
 @media screen and (max-width: 768px) {
 
@@ -177,6 +247,31 @@ body {
     margin: 10px auto; /* Adjust margin for better centering */
   }
 
+  .inquiry {
+    padding: 2vh 5vw; /* Reduce horizontal padding on small screens */
+  }
+
+  .input-row {
+    justify-content: flex-start; /* Align items to the start */
+  }
+
+  .input-group {
+    flex-basis: 100%; /* Each input group takes full width on small screens */
+  }
+
+  .inquiry input[type="text"],
+  .inquiry input[type="email"],
+  .inquiry textarea {
+    padding: 12px; /* Increase padding for better typing experience */
+  }
+  
+  /* Adjusting custom bottom border for small screens */
+  .inquiry input[type="text"]::after,
+  .inquiry input[type="email"]::after,
+  .inquiry textarea::after {
+    width: 80%; /* Increase the width of the custom border */
+    left: 10%; /* Center the custom border */
+  }
   /* Add additional style adjustments as needed */
 }
 
