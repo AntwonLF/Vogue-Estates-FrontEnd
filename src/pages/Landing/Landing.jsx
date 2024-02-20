@@ -3,12 +3,15 @@ import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import './Landing.css'; 
 import { useTransition, animated } from '@react-spring/web'
+import emailjs from '@emailjs/browser';
 
-const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
+const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMounted }) => {
   const [message, setMessage] = useState('');
   const [currentForm, setCurrentForm] = useState('login');
   const formSectionRef = useRef(null)
+  const inquirySectionRef = useRef(null)
   const ref = useRef([])
+  const form = useRef()
   const [items, set] = useState([])
   const transitions = useTransition(items, {
     from: {
@@ -47,6 +50,29 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
         }
       }, [formSectionRef, onFormSectionMounted]);
 
+      const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs
+          .sendForm('service_cp85x5q', 'template_3tp0zmk', e.target, {
+            publicKey: 'PdLJL5BOtnZbfX1cz',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+          e.target.reset()
+      };
+
+      useEffect(()=>{
+        if(inquirySectionRef.current){
+          onInquirySectionMounted(inquirySectionRef.current);
+        }
+      },[inquirySectionRef, onInquirySectionMounted]);
   return (
     <div className="landing-container">
       <div className="brand-container">
@@ -70,7 +96,37 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted }) => {
 
         <p>Our dedicated team works tirelessly to ensure that from the moment you step through our doors, you're not just a client but a valued member of the Vogue Estates family. Our mission, our passion, is to deliver an unparalleled living experience that caters to your every need, ensuring that your home in Miami is not just a sanctuary of peace and elegance, but also a reflection of the city's vibrant spirit.</p>
       </div>
-      {/* Forms moved outside of the main background container to a new section */}
+      <div style={{ borderTop: "2px solid #000000 ", marginLeft: 20, marginRight: 20 }}></div>
+      <div ref={inquirySectionRef} className='inquiry'>
+      <form ref={form} onSubmit={sendEmail}>
+  <div className="input-row">
+    <div className="input-group">
+      <label>Name</label>
+      <input type="text" name="name" />
+    </div>
+    <div className="input-group">
+      <label>Phone</label>
+      <input type="text" name="phone" />
+    </div>
+  </div>
+  <div className="input-row">
+    <div className="input-group">
+      <label>Email</label>
+      <input type="email" name="email" />
+    </div>
+    <div className="input-group">
+      <label>Message</label>
+      <input type='text' name="message" />
+    </div>
+  </div>
+  <div className="submit-button-container">
+  <input type="submit" value="Send" />
+</div>
+</form>
+
+
+    </div>
+    <div style={{ borderTop: "2px solid #000000 ", marginLeft: 20, marginRight: 20 }}></div>
       <div ref={formSectionRef} className="form-section"> {/* New wrapper for forms */}
         {currentForm === 'login' ? (
           <LoginForm

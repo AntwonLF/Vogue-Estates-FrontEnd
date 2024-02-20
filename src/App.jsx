@@ -31,16 +31,20 @@ function App() {
   };
 
   const [formSectionRef, setFormSectionRef] =useState(null);
+  const [inquirySectionRef, setInquirySectionRef] = useState(null);
 
   const handleFormSectionRef = (ref) => {
     setFormSectionRef(ref);
   };
 
+  const handleInquirySectionRef = (ref) => {
+    setInquirySectionRef
+  }
   return (
     <>
-      <NavBar formSectionRef={formSectionRef} user={user} handleSignout={handleSignout} />
+      <NavBar formSectionRef={formSectionRef} inquirySectionRef={inquirySectionRef} user={user} handleSignout={handleSignout} />
       <Routes>
-      <Route path='/' element={<Landing user={user} handleSignupOrLogin={handleSignupOrLogin} onFormSectionMounted={handleFormSectionRef}/>} />
+      <Route path='/' element={<Landing user={user} handleSignupOrLogin={handleSignupOrLogin} onFormSectionMounted={handleFormSectionRef} onInquirySectionMounted={handleInquirySectionRef}/>} />
 
         <Route path="/location" element={<Location />} />
         <Route path="/team" element={<Team />} />
