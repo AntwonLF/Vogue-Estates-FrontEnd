@@ -82,80 +82,9 @@ body {
   font-weight: bold;
 }
 
-.toggle-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border: none;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-button:hover {
-  text-decoration: underline;
-}
-
-
 .about-section * {
   margin-bottom: 0;
 }
-  
-  .brand-container {
-    margin-top: 110px;
-    margin-bottom: 150px; 
-    text-align: center;
-  }
-  
-  .about-section {
-    padding: 50px;
-    color: #0e0c0c;
-    text-align: center;
-    background-color: white;
-    /* width: 100%; */
-    max-width:fit-content;
-    margin-bottom: 0; /* Ensure there's no bottom margin pushing the form-section down */
-    font-size: large;
-  }
-  
-  .form-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-    background-color: #fff; /* Set a background color for the form section */
-    width: 100%; /* Match the width of the about-section */
-
-  }
-  
-  .brand-title {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-size: 3rem; 
-    font-weight: 300;
-    line-height: 1.4;
-    color: black;
-    margin-bottom: 0px;
-    }
-  
-  
-  .brand-subtitle {
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.4;
-    box-sizing: border-box;
-  }
-  
-  .brand-description {
-    font-size: 1rem;
-    color: #0e0c0c;
-    font-weight: bold;
-  }
   
 .toggle-button {
   color: black;
@@ -183,19 +112,6 @@ body {
     box-shadow: none;
     transform: translateY(0);
    }
-  
-   .about-section * {
-    margin-bottom: 0;
-  }
-
-  /* .form-section * {
-    margin-top: 0;
-  } */
-  
-
- 
-
-
 
 .main {
   min-width: 100px;
@@ -228,22 +144,22 @@ body {
 
   .inquiry {
     background-color: white;
-    padding: 2vh 40vw; /* Adjust horizontal padding for better spacing */
+    padding: 2vh 40vw; 
     max-width: 500px;
-    margin: auto; /* Center the inquiry form */
+    margin: auto; 
   }
   
   .input-row {
     display: flex;
-    justify-content: space-between; /* Keep space between the input groups */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: space-between; 
+    flex-wrap: wrap; 
   }
   
   .input-group {
-    flex-basis: 48%; /* Adjust for more space between groups */
+    flex-basis: 48%; 
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px; /* Space below each group */
+    margin-bottom: 20px; 
   }
   
   .inquiry label {
@@ -257,23 +173,23 @@ body {
   .inquiry textarea {
     width: 100%;
     padding: 8px;
-    border: none; /* Remove the default border */
-    border-bottom: 2px solid black; /* Solid black line at the bottom */
-    box-sizing: border-box; /* To ensure padding doesn't affect the overall width */
-    border-radius: 0; /* Remove curvature */
+    border: none;
+    border-bottom: 2px solid black; 
+    box-sizing: border-box; 
+    border-radius: 0; 
   }
   
   .inquiry input[type="text"]:focus,
   .inquiry input[type="email"]:focus,
   .inquiry textarea:focus {
-    outline: none; /* Remove the focus outline */
-    border-bottom: 2px solid #555; /* Change the border color on focus */
+    outline: none; 
+    border-bottom: 2px solid #555; 
   }
   
   .submit-button-container {
     display: flex;
-    justify-content: center; /* Center the button */
-    width: 100%; /* Full width to align with other elements */
+    justify-content: center; 
+    width: 100%; 
   }
   
   .inquiry input[type="submit"] {
@@ -283,19 +199,14 @@ body {
     border: solid black 1px;
     cursor: pointer;
     transition: background-color 0.3s;
-    text-decoration: none; /* Remove text underline */
-    border-radius: 10px; /* Remove curvature from button */
+    text-decoration: none;  
+    border-radius: 10px; 
   }
   
   .inquiry input[type="submit"]:hover {
     background-color: whitesmoke;
   }
   
-  
-/* Base styles */
-/* ... Your existing CSS ... */
-
-/* Media Queries */
 .Mycarousel-container {
   max-width: 1350px;
   margin: 0 auto;
@@ -321,8 +232,29 @@ body {
   background-color: transparent;
 }
 
+.container, .main {
+    padding: 10px;
+    margin: 10px auto; 
+  }
 
-/* Media Queries */
+
+
+.Mycarousel-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 20px; 
+}
+
+
+.Mycarousel-container img {
+  width: 100%; 
+  height: auto; 
+  max-width: 300px; 
+  max-height: 200px; 
+  object-fit: cover; 
+}
+
+
 @media screen and (max-width: 768px) {
 
   .brand-title {
@@ -367,6 +299,37 @@ body {
       top: 5px;
       right: 5px;
     }
+
+    .inquiry {
+      padding: 2vh 5vw;
+    }
+  
+    .input-row {
+      justify-content: flex-start; 
+    }
+  
+    .input-group {
+      flex-basis: 100%;
+    }
+  
+    .inquiry input[type="text"],
+    .inquiry input[type="email"],
+    .inquiry textarea {
+      padding: 12px; 
+    }
+  
+    
+    .inquiry input[type="text"]::after,
+    .inquiry input[type="email"]::after,
+    .inquiry textarea::after {
+      width: 80%; 
+      left: 10%; 
+    }
+
+    .face-emoji-button {
+      display: none;
+    }
+  
   }
 
   @media (max-width: 480px) {
@@ -375,50 +338,4 @@ body {
       display: none;
     }
   }
-  .container, .main {
-    padding: 10px; /* Adjust padding for these elements */
-    margin: 10px auto; /* Adjust margin for better centering */
-  }
-
-  .inquiry {
-    padding: 2vh 5vw; /* Reduce horizontal padding on small screens */
-  }
-
-  .input-row {
-    justify-content: flex-start; /* Align items to the start */
-  }
-
-  .input-group {
-    flex-basis: 100%; /* Each input group takes full width on small screens */
-  }
-
-  .inquiry input[type="text"],
-  .inquiry input[type="email"],
-  .inquiry textarea {
-    padding: 12px; /* Increase padding for better typing experience */
-  }
   
-  /* Adjusting custom bottom border for small screens */
-  .inquiry input[type="text"]::after,
-  .inquiry input[type="email"]::after,
-  .inquiry textarea::after {
-    width: 80%; /* Increase the width of the custom border */
-    left: 10%; /* Center the custom border */
-  }
-  /* Add additional style adjustments as needed */
-
-
-.Mycarousel-container {
-  max-width: 1350px; /* Adjust the maximum width of the container */
-  margin: 0 auto;
-  padding: 0 20px; /* Add padding to create space between the images */
-}
-
-
-.Mycarousel-container img {
-  width: 100%; /* Ensure images take full width of the container */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 300px; /* Set a maximum width for the images */
-  max-height: 200px; /* Set a maximum height for the images */
-  object-fit: cover; /* Ensure that images cover their container while preserving aspect ratio */
-}
