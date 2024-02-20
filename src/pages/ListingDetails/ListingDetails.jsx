@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { deleteListing, updateListing } from '../../services/listingService'; 
 import * as tokenService from '../../services/tokenService'; 
+import './ListingDetails.css';
 
 const ListingDetails = () => {
   const location = useLocation();
