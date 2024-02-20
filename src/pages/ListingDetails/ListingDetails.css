@@ -12,7 +12,7 @@ h2 {
 
 input[type="text"],
 input[type="number"] {
-  width: calc(100% - 22px); 
+  /* width: calc(100% - 22px);  */
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -26,7 +26,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .update-btn, .edit-btn, .delete-btn {

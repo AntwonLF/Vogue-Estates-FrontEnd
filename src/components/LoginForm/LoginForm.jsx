@@ -41,39 +41,44 @@ const LoginForm = (props) => {
 
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <div>
-        <input
-          type="text"
-          autoComplete="off"
-          name="username"
-          id="username"
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Enter your username"
-        />
+    <div className="login-form-container">
+      <div className="center-text">
+        <p>Member login</p> {/* Add the text here */}
       </div>
-      <div>
-        <input
-          className="password"
-          type="password"
-          autoComplete="off"
-          name="password"
-          id="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-        />
-      </div>
-      <div>
-        <label className='check-box'>
-          <input type="checkbox" checked={isAgent} onChange={toggleUserType} /> Login as Agent
-        </label>
-      </div>
-      <div className="login-button">
-        <button className="glow-on-hover" type="submit">Log In</button>
-      </div>
-    </form>
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <div>
+          <input
+            type="text"
+            autoComplete="off"
+            name="username"
+            id="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Enter your username"
+          />
+        </div>
+        <div>
+          <input
+            className="password"
+            type="password"
+            autoComplete="off"
+            name="password"
+            id="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+          />
+        </div>
+        <div>
+          <label className='check-box'>
+            <input type="checkbox" checked={isAgent} onChange={toggleUserType} /> Login as Agent
+          </label>
+        </div>
+        <div className="login-button">
+          <button className="glow-on-hover" type="submit">Log In</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

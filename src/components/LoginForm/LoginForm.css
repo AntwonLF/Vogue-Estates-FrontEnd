@@ -1,28 +1,12 @@
    .glow-on-hover {
-    appearance: none;
-    background-color: white; 
-    border: 0.125em solid rgb(231, 187, 129);
-    border-radius: 0.9375em;
-    box-sizing: border-box;
-    color: #e0b174;
+    color: black;
+    background-color: white;
+    padding: 10px 15px;
+    border: solid black 1px;
     cursor: pointer;
-    display: inline-block;
-    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 16px;
-    font-weight: 600;
-    line-height: normal;
-    margin: 0;
-    min-height: 3em;
-    min-width: 0;
-    outline: none;
-    padding: 1em 9em;
-    text-align: center;
+    transition: background-color 0.3s;
     text-decoration: none;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    will-change: transform;
+    border-radius: 10px;
 }
 
 .glow-on-hover:disabled {
@@ -31,7 +15,7 @@
 
 .glow-on-hover:hover {
     color: black;
-    background-color: #e0b174; /* Keep the hover background color as white */
+    background-color: #e0ddd9; /* Keep the hover background color as white */
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
@@ -55,3 +39,13 @@
 }
 
 
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns horizontally */
+  }
+  
+  .center-text {
+    text-align: center; /* Center-aligns the text */
+  }
+  
