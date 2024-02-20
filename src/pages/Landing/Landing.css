@@ -102,14 +102,6 @@ body {
   margin-bottom: 0;
 }
 
-/* .form-section * {
-    margin-top: 0;
-  } */
-
-
-
-
-
 
 .main {
   min-width: 100px;
@@ -320,7 +312,7 @@ body {
     left: 10%; /* Center the custom border */
   }
   /* Add additional style adjustments as needed */
-}
+
 
 .Mycarousel-container {
   max-width: 1350px; /* Adjust the maximum width of the container */
