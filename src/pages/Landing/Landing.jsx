@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import './Landing.css'; 
+import './Landing.css';
 import { useTransition, animated } from '@react-spring/web'
 import emailjs from '@emailjs/browser';
 import Slider from "react-slick";
@@ -18,41 +18,42 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMo
   const form = useRef()
   const [items, set] = useState([])
   const transitions = useTransition(items, {
-    from: {
-      opacity: 0,
-      height: 0,
-      innerHeight: 0,
-      color: 'black',
-    },
-    enter: [
-        { opacity: 1, height: 120, innerHeight: 90 },
-      ],
-      leave: [{ color: 'black' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
-      config: {
-        duration: 1000,
-        tension: 270,
-        friction: 26
-      }
-    })
+    from: { opacity: 0, height: 0, innerHeight: 0, color: 'black' },
+    enter: [{ opacity: 1, height: 120, innerHeight: 90 }],
+    leave: [{ color: 'black' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
+    config: { duration: 1000, tension: 270, friction: 26 }
+  });
 
-    const reset = useCallback(() => {
-        ref.current.forEach(clearTimeout)
-        ref.current = []
-        set([])
-        ref.current.push(setTimeout(() => set([<h1 className="brand-title">Vogue Estateś</h1>,
-        <p className="brand-subtitle">Where luxury meets realty</p>]), 10))
-      }, [])
-    
-      useEffect(() => {
-        reset()
-        return () => ref.current.forEach(clearTimeout)
-      }, [])
+  const reset = useCallback(() => {
+    ref.current.forEach(clearTimeout)
+    ref.current = []
+    set([])
+    ref.current.push(setTimeout(() => set([<h1 className="brand-title">Vogue Estateś</h1>,
+    <p className="brand-subtitle">Where luxury meets realty</p>]), 10))
+  }, [])
 
-      useEffect(() => {
-        if (formSectionRef.current) {
-          onFormSectionMounted(formSectionRef.current);
-        }
-      }, [formSectionRef, onFormSectionMounted]);
+  useEffect(() => {
+    reset()
+    return () => ref.current.forEach(clearTimeout)
+  }, [])
+
+  useEffect(() => {
+    if (formSectionRef.current) {
+      onFormSectionMounted(formSectionRef.current);
+    }
+  }, [formSectionRef, onFormSectionMounted]);
+
+  const isAppleDevice = () => {
+    return /Mac|iPhone|iPad|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  };
+
+  const handleEmojiClick = () => {
+    if (isAppleDevice()) {
+      window.location.href = 'facetime://email@example.com';
+    } else {
+      alert('FaceTime is only available on Apple devices.');
+    }
+  };
 
       const sendEmail = (e) => {
         e.preventDefault();
@@ -80,17 +81,17 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMo
   return (
     <div className="landing-container">
       <div className="brand-container">
-      <div className="container">
-      <div className="main">
-        {transitions(({ innerHeight, ...rest }, item) => (
-            <animated.div className="transitionsItem" style={rest} >
-            <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
-          </animated.div>
-        ))}
-      </div>
-    </div>
-        {/* <h1 className="brand-title">Vogue Estateś</h1> */}
-        {/* <p className="brand-subtitle">Where luxury meets realty</p> */}
+        <div className="container">
+          <div className="main">
+            {transitions(({ innerHeight, ...rest }, item) => (
+              <animated.div className="transitionsItem" style={rest} >
+                <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
+              </animated.div>
+            ))}
+          </div>
+          <button id="faceEmojiButton" onClick={handleEmojiClick} className="face-emoji-button">Chat With Us</button>
+        </div>
+      
       </div>
       <div className="about-section">
         <h2>About Us</h2>
@@ -110,32 +111,32 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMo
       </div>
 
       <div className="Mycarousel-container">
-  <Slider
-  dots={true}
-  arrows={true}
-  infinite={true}
-  speed={500}
-  slidesToShow={4} // Adjust this value to control the number of images shown at once
-  slidesToScroll={1}
->
-    <div>
-      <img src="https://i.imgur.com/V2ewfci.jpeg" alt="carousel-img-1" />
-    </div>
-    <div>
-      <img src="https://i.imgur.com/5b1gUTn.jpeg" alt="carousel-img-2" />
-    </div>
-    <div>
-      <img src="https://i.imgur.com/48xynj0.jpeg" alt="carousel-img-3" />
-    </div>
-    <div>
-      <img src="https://i.imgur.com/aRzcmmn.jpeg" alt="carousel-img-4" />
-    </div>
-    <div>
-      <img src="https://i.imgur.com/8rgBvkO.jpeg" alt="carousel-img-5" />
-    </div>
-  </Slider>
-</div>
-    
+        <Slider
+          dots={true}
+          arrows={true}
+          infinite={true}
+          speed={500}
+          slidesToShow={4} // Adjust this value to control the number of images shown at once
+          slidesToScroll={1}
+        >
+          <div>
+            <img src="https://i.imgur.com/V2ewfci.jpeg" alt="carousel-img-1" />
+          </div>
+          <div>
+            <img src="https://i.imgur.com/5b1gUTn.jpeg" alt="carousel-img-2" />
+          </div>
+          <div>
+            <img src="https://i.imgur.com/48xynj0.jpeg" alt="carousel-img-3" />
+          </div>
+          <div>
+            <img src="https://i.imgur.com/aRzcmmn.jpeg" alt="carousel-img-4" />
+          </div>
+          <div>
+            <img src="https://i.imgur.com/8rgBvkO.jpeg" alt="carousel-img-5" />
+          </div>
+        </Slider>
+      </div>
+
 
 
       <div style={{ borderTop: "2px solid #000000 ", marginLeft: 20, marginRight: 20 }}></div>

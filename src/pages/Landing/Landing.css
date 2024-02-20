@@ -1,30 +1,105 @@
 body {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; /* Keeps the background image static */
-    background-size: cover; /* Ensures the background image covers the entire page */
-    background-color: rgb(213, 208, 208);
-  }
-  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(213, 208, 208);
+}
 
-  .landing-container {
-    background-image: url('../../assets/jnpZLID.png');
-    background-size: 1000px auto;
-    margin-top: -142px;
-    font-family: 'Montserrat';
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-rows: 1fr; /* Auto-sized rows */
-    gap: 0px; /* No gap between grid items */
-    align-items: start; /* Align items to the start of the container */
-    justify-content: center;
-    min-height: 100vh; /* Minimum height to cover the viewport */
-    background-size: contain; /* Adjusted to contain */
-    background-position: center;
-    background-attachment: scroll;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center top;   
+
+.landing-container {
+  background-image: url('../../assets/jnpZLID.png');
+  background-size: 1000px auto;
+  margin-top: -142px;
+  font-family: 'Montserrat';
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px;
+  align-items: start;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: contain;
+  background-position: center;
+  background-attachment: scroll;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: relative;
+}
+
+.brand-container {
+  margin-top: 110px;
+  margin-bottom: 150px;
+  text-align: center;
+}
+
+.about-section {
+  padding: 50px;
+  color: #0e0c0c;
+  text-align: center;
+  background-color: white;
+  max-width: fit-content;
+  margin-bottom: 0;
+  font-size: large;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 px;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 0;
+}
+
+.brand-title {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: black;
+  margin-bottom: 0px;
+}
+
+
+.brand-subtitle {
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.brand-description {
+  font-size: 1rem;
+  color: #0e0c0c;
+  font-weight: bold;
+}
+
+.toggle-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+
+.about-section * {
+  margin-bottom: 0;
 }
   
   .brand-container {
@@ -138,35 +213,35 @@ body {
 
 
 
-  .main {
-    min-width: 100px;
-    padding: 0 20px;
-    margin: 0 auto;
-    height: 260px;
-  }
-  
-  .transitionsItem {
-    overflow: hidden;
-    width: 100%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    font-weight: 800;
-    text-transform: uppercase;
-    will-change: transform, opacity, height;
-    white-space: nowrap;
-    line-height: 80px;
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-  }
-  
+.main {
+  min-width: 100px;
+  padding: 0 20px;
+  margin: 0 auto;
+  height: 260px;
+}
+
+.transitionsItem {
+  overflow: hidden;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity, height;
+  white-space: nowrap;
+  line-height: 80px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
   .inquiry {
     background-color: white;
     padding: 2vh 40vw; /* Adjust horizontal padding for better spacing */
@@ -237,38 +312,85 @@ body {
 /* ... Your existing CSS ... */
 
 /* Media Queries */
+.Mycarousel-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+.Mycarousel-container img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.face-emoji-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  pointer-events: auto;
+  background-color: transparent;
+}
+
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
 
   .brand-title {
-    font-size: 2rem; /* Smaller font size for smaller screens */
+    font-size: 2rem;
     margin-bottom: 5px;
   }
 
-  .brand-subtitle, .brand-description {
-    font-size: 1rem; /* Adjust font size for smaller screens */
+  .brand-subtitle,
+  .brand-description {
+    font-size: 1rem;
     margin-top: 2px;
   }
 
-  .brand-container, .about-section, .form-section {
-    margin: 0px; /* Adjust margins for smaller screens */
-    padding: 0px; /* Adjust padding for smaller screens */
+  .brand-container,
+  .about-section,
+  .form-section {
+    margin: 0px;
+    padding: 0px;
   }
 
   .landing-container {
-    background-size: cover; /* Change background size for better coverage */
-    grid-template-columns: 1fr; /* Adjust grid layout for smaller screens */
-    background-size: 1000px ; /* Adjust the size to what looks best */
-    background-position: top center; /* Adjust the position if needed */
+    background-size: cover;
+    grid-template-columns: 1fr;
+    background-size: 1000px;
+    background-position: top center;
     background-attachment: scroll;
   }
 
   .transitionsItem {
-    font-size: 2em; /* Smaller font size for the animation */
-    line-height: 50px; /* Adjust line height for smaller screens */
-    margin-top: 15px; 
+    font-size: 2em;
+    line-height: 50px;
+    margin-top: 15px;
   }
 
+  .container,
+  .main {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+    .face-emoji-button {
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .face-emoji-button {
+      display: none;
+    }
+  }
   .container, .main {
     padding: 10px; /* Adjust padding for these elements */
     margin: 10px auto; /* Adjust margin for better centering */
@@ -300,7 +422,7 @@ body {
     left: 10%; /* Center the custom border */
   }
   /* Add additional style adjustments as needed */
-}
+
 
 .Mycarousel-container {
   max-width: 1350px; /* Adjust the maximum width of the container */
