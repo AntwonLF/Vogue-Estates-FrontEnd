@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { deleteListing, updateListing } from '../../services/listingService'; 
-import * as tokenService from '../../services/tokenService'; 
+import { deleteListing, updateListing } from '../../services/listingService';
+import * as tokenService from '../../services/tokenService';
 import './ListingDetails.css';
 
 const ListingDetails = () => {
@@ -16,7 +16,7 @@ const ListingDetails = () => {
     setListing({ ...listing, [name]: value });
   };
   const handleBack = () => {
-    navigate('/listing'); 
+    navigate('/listing');
   };
 
   const handleUpdate = async (e) => {
@@ -24,8 +24,8 @@ const ListingDetails = () => {
     if (listing && listing.id) {
       try {
         await updateListing(listing.id, listing);
-        navigate('/listing'); 
-        setIsEditing(false); 
+        navigate('/listing');
+        setIsEditing(false);
       } catch (error) {
         console.error('Failed to update listing:', error);
       }
@@ -115,25 +115,25 @@ const ListingDetails = () => {
         onChange={handleInputChange}
         placeholder="Agent"
       />
-      
+
       <input
         type="text"
         name="image"
         value={listing.images[0].image}
-        onChange={(e) => handleImageChange(e, 0)} 
+        onChange={(e) => handleImageChange(e, 0)}
         placeholder="Image URL"
       />
       <input
         type="text"
         name="description"
         value={listing.images[0].description}
-        onChange={(e) => handleImageChange(e, 0)} 
+        onChange={(e) => handleImageChange(e, 0)}
         placeholder="Image Description"
       />
       <button onClick={handleUpdate} className="update-btn">Update Listing</button>
     </>
   );
-  
+
 
   const displayModeView = (
     <>
@@ -152,11 +152,11 @@ const ListingDetails = () => {
   );
 
   return (
-    <div>
+    <div >
       <h2>Listing Details</h2>
-      <button onClick={handleBack} className="back-btn">Back to Listings</button>
       {isEditing ? editModeView : displayModeView}
       <div className="action-buttons">
+        <button onClick={handleBack} className="back-btn">Back to Listings</button>
         <button onClick={() => setIsEditing(!isEditing)} className="edit-btn">{isEditing ? 'Cancel' : 'Edit'}</button>
         <button onClick={handleDelete} className="delete-btn">Delete Listing</button>
       </div>

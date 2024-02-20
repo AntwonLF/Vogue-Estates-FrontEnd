@@ -12,7 +12,6 @@ h2 {
 
 input[type="text"],
 input[type="number"] {
-  /* width: calc(100% - 22px);  */
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -26,16 +25,20 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* font-weight: bold; */
+  
 }
 
 .update-btn, .edit-btn, .delete-btn {
-  background-color: #000000;
+  background-color: #3f3c3c;
   color: white;
+}
+.update-btn, .edit-btn, .delete-btn, .back-btn {
+  flex: 1; 
+  text-align: center; 
 }
 
 .delete-btn {
-  background-color: #3f3c3c;
+  background-color: #000000;
 }
 
 .back-btn {
@@ -45,7 +48,10 @@ button {
 
 
 .action-buttons {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -68,6 +74,14 @@ img {
 }
 
 @media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
   div {
     padding: 10px;
   }

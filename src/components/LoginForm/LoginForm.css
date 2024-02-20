@@ -15,7 +15,7 @@
 
 .glow-on-hover:hover {
     color: black;
-    background-color: #e0ddd9; /* Keep the hover background color as white */
+    background-color: #e0ddd9; 
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
@@ -42,10 +42,10 @@
 .login-form-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-aligns horizontally */
+    align-items: center; 
   }
   
   .center-text {
-    text-align: center; /* Center-aligns the text */
+    text-align: center; 
   }
   

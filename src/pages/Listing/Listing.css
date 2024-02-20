@@ -16,6 +16,7 @@
 
   .slick-arrow {
     z-index: 1;
+    
   }
 
   .custom-arrow {
@@ -43,11 +44,11 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: black; /* Set background color to black */
-    color: white; /* Set text color to white */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding for better appearance */
-    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: black;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
     cursor: pointer;
     z-index: 100; 
 }

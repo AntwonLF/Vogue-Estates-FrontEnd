@@ -116,7 +116,7 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMo
           arrows={true}
           infinite={true}
           speed={500}
-          slidesToShow={4} // Adjust this value to control the number of images shown at once
+          slidesToShow={4} 
           slidesToScroll={1}
         >
           <div>
@@ -170,7 +170,7 @@ const Landing = ({ handleSignupOrLogin, onFormSectionMounted, onInquirySectionMo
 
     </div>
     <div style={{ borderTop: "2px solid #000000 ", marginLeft: 20, marginRight: 20 }}></div>
-      <div ref={formSectionRef} className="form-section"> {/* New wrapper for forms */}
+      <div ref={formSectionRef} className="form-section"> 
         {currentForm === 'login' ? (
           <LoginForm
             message={message}

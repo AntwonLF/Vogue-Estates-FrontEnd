@@ -51,7 +51,7 @@ const AgentModal = ({ listingId, mode = "add", onClose, refreshListings, userId,
 
     if (userId) {
       try {
-        // Only handle adding a listing, removed update functionality
+       
         await addListing(listing, userId);
         refreshListings();
         onClose();

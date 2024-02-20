@@ -10,7 +10,7 @@ const LoginForm = (props) => {
     password: '',
   });
   const [isAgent, setIsAgent] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     if (props.setMessage) {
@@ -25,7 +25,6 @@ const LoginForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     try {
       const response = isAgent ? await authService.loginAgent(formData) : await authService.loginClient(formData);
       console.log('Login response:', response); 
@@ -43,7 +42,7 @@ const LoginForm = (props) => {
   return (
     <div className="login-form-container">
       <div className="center-text">
-        <p>Member login</p> {/* Add the text here */}
+        <p>Member login</p> 
       </div>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>

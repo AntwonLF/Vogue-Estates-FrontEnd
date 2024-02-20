@@ -7,7 +7,7 @@ import antwonImage from '../../assets/antwon.jpg';
 
 const Team = () => {
   return (
-    <div className="team-container"> {/* Add team-container class */}
+    <div className="team-container"> 
       <div className="row">
         <div className="column">
           <div className="card">
