@@ -160,10 +160,10 @@ body {
 .toggle-button {
     appearance: none;
     background-color: white;
-    border: 0.125em solid #e0b174;
+    /* border: 0.125em solid #b3b1ae; */
     border-radius: 0.9375em;
     box-sizing: border-box;
-    color: #e0b174;
+    color: #777574;
     cursor: pointer;
     display: inline-block;
     font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -190,7 +190,7 @@ body {
    
    .toggle-button:hover {
     color: black;
-    background-color: #e0b174;
+    background-color: #e0ddd9;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
    }

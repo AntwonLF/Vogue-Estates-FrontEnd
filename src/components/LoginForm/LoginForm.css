@@ -1,10 +1,10 @@
    .glow-on-hover {
     appearance: none;
     background-color: white; 
-    border: 0.125em solid rgb(231, 187, 129);
+    /* border: 0.125em solid rgb(231, 187, 129); */
     border-radius: 0.9375em;
     box-sizing: border-box;
-    color: #e0b174;
+    color: #828282;
     cursor: pointer;
     display: inline-block;
     font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -31,7 +31,7 @@
 
 .glow-on-hover:hover {
     color: black;
-    background-color: #e0b174; /* Keep the hover background color as white */
+    background-color: #e0ddd9; /* Keep the hover background color as white */
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
